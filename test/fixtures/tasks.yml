@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id             :bigint(8)        not null, primary key
+#  name           :string           not null
+#  order          :integer          not null
+#  description    :text
+#  user_assigned  :integer
+#  user_completed :integer
+#  due_date       :date
+#  completed      :boolean          default(FALSE)
+#  section_id     :bigint(8)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  order: 1
+  description: MyText
+  user_assigned: 1
+  user_completed: 1
+  due_date: 2018-09-23
+  completed: false
+  section: one
+
+two:
+  name: MyString
+  order: 1
+  description: MyText
+  user_assigned: 1
+  user_completed: 1
+  due_date: 2018-09-23
+  completed: false
+  section: two

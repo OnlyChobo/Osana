@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: sessions
+#
+#  id            :bigint(8)        not null, primary key
+#  session_token :string           not null
+#  user_id       :bigint(8)
+#  expires_at    :datetime         not null
+#  expired       :boolean          default(FALSE)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  user: one
+  expires_at: 2018-09-23 21:58:33
+  expired: false
+
+two:
+  token: MyString
+  user: two
+  expires_at: 2018-09-23 21:58:33
+  expired: false

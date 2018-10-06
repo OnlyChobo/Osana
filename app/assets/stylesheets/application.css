@@ -1,0 +1,228 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ html, body, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul,
+ li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th,
+ article, aside, canvas, details, embed, figure, figcaption, footer, header,
+ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video,
+ input, textarea {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font-family: inherit;
+     vertical-align: baseline;
+ }
+
+ html, body {
+     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+     font-size: 13px;
+     line-height: normal;
+     text-rendering: optimizeLegibility;
+ }
+
+ body {
+     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+     background-color: #f6f8f9;
+     color: #151b26;
+     font-size: 13px;
+     overflow: hidden;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+ }
+
+ .SideNavContainer {
+     background-color: #151b26;
+     display: flex;
+     flex-direction: column;
+     color: white;
+     border-bottom: 1px solid #222b37;
+     padding-bottom: 10px;
+     width: 250px;
+ }
+
+ div {
+     display: block;
+ }
+
+ .SideNavTopLinks {
+     color: white;
+     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+     font-size: 14px;
+     font-weight: 400;
+ }
+
+ a {
+     color: white;
+     cursor: pointer;
+     text-decoration: none;
+     background-color: transparent;
+ }
+
+ .SideNavItemRow {
+     align-items: center;
+     display: flex;
+     fill: #9ca6af;
+     height: 28px;
+     justify-content: right;
+     line-height: 28px;
+     padding: 0 10px 0 15px;
+ }
+
+ .SideNavItems {
+   align-items: center;
+   display: flex;
+   fill: #9ca6af;
+   height: 28px;
+   justify-content: right;
+   line-height: 28px;
+   padding: 0 10px 0 15px;
+   font-size: 13px;
+   font-weight: 400;
+ }
+
+ .SideNavItemRow-name {
+   margin-right: auto;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+ }
+
+ .SideNavTitles {
+   color: #646f79;
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   font-size: 13px;
+   font-weight: 500;
+   cursor: pointer;
+   display: flex;
+   margin-right: 10px;
+ }
+
+ .SideNavTitles:hover {
+   color: #9ca6af;
+ }
+
+ .SideNavTitles-name {
+   padding: 5px 15px;
+ }
+
+ .SideNavSection {
+     border-bottom: 1px solid #222b37;
+     padding-bottom: 10px;
+     padding-top: 10px;
+ }
+
+ .SideNavMoreLess {
+   color: #646f79;
+   fill: #646f79;
+   align-items: center;
+   display: inline-flex;
+   font-size: 11px;
+   height: 28px;
+   margin-left: 15px;
+   margin-right: 5px;
+   cursor: pointer;
+ }
+
+ .SideNavMoreLess:hover {
+   color: #9ca6af;
+ }
+
+ .SideNavMoreLess-name {
+   margin-right: 5px;
+ }
+
+ .SideNavListIcon {
+   flex: 0 0 auto;
+   margin-right: 10px;
+   width: 12px;
+   color: #d5dce0;
+ }
+
+ .ProfileIcon img {
+   width: 24px;
+   height: 24px;
+ }
+
+ .ProfileIcon {
+   margin-left: 5px;
+ }
+
+ .SideNavTeamMemberList {
+   align-items: center;
+   display: flex;
+   height: 28px;
+   margin: 5px 10px 5px 15px;
+ }
+
+ .SideNavTeamTitle {
+   color: #d5dce0;
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   font-weight: 400;
+   align-items: center;
+   display: flex;
+   height: 28px;
+   padding: 0 10px 0 15px;
+   cursor: pointer;
+ }
+
+ .SideNavTeamTitle-name {
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 20px;
+   color: #e0e6e8;
+   cursor: pointer;
+   margin-right: auto;
+   overflow: hidden;
+   padding-right: 0 5px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+ }
+
+ .SideNavTeamInvite {
+     align-items: center;
+     align-self: center;
+     background-color: rgba(255,255,255,0.1);
+     border: 0;
+     border-radius: 12px;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     color: #d5dce0;
+     display: flex;
+     flex: 0 0 auto;
+     height: 24px;
+     justify-content: center;
+     margin-left: 5px;
+     margin-right: auto;
+     min-width: 111px;
+     padding: 0 10px;
+ }
+
+ .SideNavTeamInvite:hover {
+   color: #32c1ff;
+   text-decoration: underline;
+ }
+
+ .NavPage:hover {
+   background-color: rgba(255,255,255,0.08);
+ }
+
+ .app {
+   display: flex;
+ }
