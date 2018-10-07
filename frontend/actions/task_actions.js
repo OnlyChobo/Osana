@@ -15,4 +15,4 @@ export const receiveTask = task => ({
 export const removeTask = task => ({
   type: REMOVE_TASK,
   task
-})
+});

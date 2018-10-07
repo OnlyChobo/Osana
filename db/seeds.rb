@@ -8,12 +8,14 @@
 
 user1 = User.create(
   email: 'a@b.c',
-  username: 'danny'
+  username: 'danny',
+  password: 'catcat'
 )
 
 user2 = User.create(
   email: 'b@c.d',
-  username: 'bob'
+  username: 'bob',
+  password: 'catcat'
 )
 
 team1 = Team.create(

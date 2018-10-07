@@ -43,14 +43,6 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "passwords", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "bcrypt_password", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_passwords_on_user_id"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -67,16 +59,6 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_sections_on_project_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.string "session_token", null: false
-    t.bigint "user_id"
-    t.datetime "expires_at", null: false
-    t.boolean "expired", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -113,6 +95,8 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
+    t.string "bcrypt_password", null: false
+    t.string "session_token", null: false
     t.string "role"
     t.string "department"
     t.string "pronoun"
@@ -120,6 +104,9 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
     t.boolean "vacation_ind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "comments", "tasks"
@@ -128,10 +115,8 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
   add_foreign_key "favourites", "users"
   add_foreign_key "likes", "comments"
   add_foreign_key "likes", "users"
-  add_foreign_key "passwords", "users"
   add_foreign_key "projects", "teams"
   add_foreign_key "sections", "projects"
-  add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "sections"
   add_foreign_key "team_memberships", "teams"
   add_foreign_key "team_memberships", "users"

@@ -7,10 +7,10 @@ class TaskList extends React.Component {
       <div> Test
         <TaskListForm receiveTask={this.props.receiveTask}/>
         <ul>
-          {this.props.tasks.map(task => <li>{task.name} - {task.description}</li>)} 
+          {this.props.tasks.map(task => <li>{task.name} - {task.description}</li>)}
         </ul>
       </div>
-    )
+    );
   }
 }
 

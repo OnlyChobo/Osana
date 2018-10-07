@@ -17,9 +17,9 @@ export const receiveProject = project => ({
 export const removeProject = project => ({
   type: REMOVE_PROJECT,
   project
-})
+});
 
-export const fetchAllProjects = () => dispatch => {
-  return APIUtil.fetchAllProjects()
+export const fetchAllProjects = () => dispatch => (
+  APIUtil.fetchAllProjects()
     .then(projects => dispatch(receiveProjects(projects)))
-};
+);
