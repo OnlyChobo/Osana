@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class Login extends React.Component {
   }
   submitInput(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.login(this.state).then(
+      data => this.props.history.push(`/teams/1`)
+    );
     this.setState({
       email: '',
       password: ''
@@ -24,35 +27,48 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div className='signin-container'>
-        <form onSubmit={this.submitInput}>
-          <label className='label'>
-            Email Address
+      <div>
+        <div className = 'login-title'>Log In</div>
+        <form className='login-form' onSubmit={this.submitInput}>
+          <div className = 'login-input-group'>
+            <label for='login-email' className='label'>
+              Email Address
+            </label>
             <input
+              id = 'login-email'
               className = 'input'
               type = 'text'
               value = { this.state.email }
               placeholder = 'name@company.com'
               onChange = {this.handleInput('email')}
             />
-          </label>
-          <label className='label'>
-            Password
+          </div>
+          <div className = 'login-input-group'>
+            <label for='login-password' className='label'>
+              Password
+            </label>
             <input
+              id = 'login-password'
               className = 'input'
               type = 'password'
               value = { this.state.password }
               placeholder = 'Password'
               onChange = {this.handleInput('password')}
             />
-          </label>
-          <input type='submit' value='Log In'/>
+        </div>
+
+          <input className = 'button login-button' type='submit' value='Log In'/>
         </form>
-        <span><a href='#'>Forgot password?</a></span>
-        <span>Don't have an account?<a href='#'>Sign up</a></span>
+
+        <div className = 'login-forgot-container'>
+          <a href='#' className = 'login-forgot'>Forgot password?</a>
+        </div>
+        <div className = 'login-signup-container'>
+          <p className = 'login-signup' >Don't have an account? <a href='#'>Sign up</a></p>
+        </div>
       </div>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -9,6 +9,7 @@ class Greeting extends React.Component {
       html = (
         <div>
           <h3>Welcome {currentUser.username}</h3>
+          <button></button>
         </div>
       );
     } else {
