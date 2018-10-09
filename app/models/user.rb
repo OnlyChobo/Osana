@@ -32,6 +32,10 @@ class User < ApplicationRecord
   through: :team_memberships,
   source: :team
 
+  has_many :projects,
+  through: :teams,
+  source: :projects
+
   has_many :assigned_tasks,
   foreign_key: :user_assigned,
   class_name: :Task

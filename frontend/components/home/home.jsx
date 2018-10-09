@@ -1,6 +1,7 @@
 import React from 'react';
-import Modal from './modal'
+import Modal from './modal';
 import LogInContainer from '../users/login_container';
+import logo from '../../../app/assets/images/logo.png';
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,11 +11,11 @@ class Home extends React.Component {
 
   showModal() {
     return () => this.setState({ show: true });
-  };
+  }
 
   hideModal() {
     return () => this.setState({ show: false });
-  };
+  }
 
   render () {
     return (
@@ -24,7 +25,7 @@ class Home extends React.Component {
             <LogInContainer />
           </Modal>
           <div className='home-nav-logo'>
-            
+            <img src= {logo} />
           </div>
           <div className='home-nav-space'></div>
           <nav className='home-horizontal-nav'>
@@ -41,7 +42,7 @@ class Home extends React.Component {
           <div className='home-text-container'>
             <h3>Make more time for the work that matters most</h3>
             <h2>
-              Asana helps you coordinate all the work your team does together.
+              Osana helps you coordinate all the work your team does together.
               So everyone knows what needs to get done, who’s responsible for
               doing it, and when it’s due.
             </h2>
@@ -54,7 +55,7 @@ class Home extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 

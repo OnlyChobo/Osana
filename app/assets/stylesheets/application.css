@@ -434,6 +434,11 @@
   max-width: 16.67%;
 }
 
+.home-nav-logo img {
+  height: 24px;
+  width: 112px;
+}
+
 .logo {
   background: url(asset_path(“logo.png”)) no-repeat transparent 50%;
   background-size: contain;

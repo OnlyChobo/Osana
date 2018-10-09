@@ -11,10 +11,14 @@
 class Team < ApplicationRecord
   validates :name, presence: true
 
-  has_many :projects
+  has_many :projects,
+  foreign_key: :team_id,
+  class_name: :Project
+
   has_many :team_memberships
 
-  has_many :memebers,
+  has_many :members,
   through: :team_memberships,
   source: :user
+
 end
