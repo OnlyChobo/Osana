@@ -15,7 +15,7 @@ class AddProject extends React.Component {
   submitInput(e) {
     e.preventDefault();
     this.props.createProject(this.state).then(
-
+      data => this.props.hideModal()()
     );
     this.setState({
       email: '',
@@ -29,35 +29,31 @@ class AddProject extends React.Component {
   render() {
     return (
       <div>
-        <div className = 'login-title'>Log In</div>
-        <form className='login-form' onSubmit={this.submitInput}>
-          <div className = 'login-input-group'>
-            <label htmlFor='login-email' className='label'>
-              Project Name
-            </label>
-            <input
-              id = 'login-email'
-              className = 'input'
-              type = 'text'
-              value = { this.state.name }
-              placeholder = 'name@company.com'
-              onChange = {this.handleInput('name')}
-            />
+        <div className = 'addProjectComponent-title'>New Project</div>
+        <form className= 'addProjectComponent-form' onSubmit={this.submitInput}>
+          <label htmlFor='projectName' className='addProject-label'>
+            Project Name
+          </label>
+          <input
+            id = 'projectName'
+            className = 'addProject-input'
+            type = 'text'
+            value = { this.state.name }
+            onChange = {this.handleInput('name')}
+          />
+          <label htmlFor='projectDescription' className='addProject-label'>
+            Description
+          </label>
+          <input
+            id = 'projectDescription'
+            className = 'addProject-input'
+            type = 'text'
+            value = { this.state.description }
+            onChange = {this.handleInput('description')}
+          />
+          <div className = 'addProject-buttonContainer'>
+            <input className = 'button addProject-button' type='submit' value='Create Project'/>
           </div>
-          <div className = 'login-input-group'>
-            <label htmlFor='login-password' className='label'>
-              Description
-            </label>
-            <textarea
-              id = 'login-password'
-              className = 'input'
-              value = { this.state.description }
-              placeholder = 'Password'
-              onChange = {this.handleInput('description')}
-            />
-        </div>
-
-          <input className = 'button login-button' type='submit' value='Create Project'/>
         </form>
       </div>
     );

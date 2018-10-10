@@ -15,13 +15,15 @@ class Greeting extends React.Component {
     const currentUser = this.props.currentUser;
     return (
       <div className = 'navBar-top'>
-        <div>
-          <input type='text' />
+        <div className = 'navBar-topRight'>
+          <div>
+            <input type='text' className='topNavBar-search' placeholder='Go to any project or task...'/>
+          </div>
+          <a className='topNavBar-addButton'/>
+          <div className='smallAvatar'>DX</div>
           <ul>
             {this.props.teams.map (team => <li key={team.id}>{team.name}</li>)}
           </ul>
-          <h3>Welcome {currentUser.username}</h3>
-          <button onClick={() => this.handleLogout()}></button>
         </div>
       </div>
     );

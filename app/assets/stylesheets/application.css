@@ -39,7 +39,7 @@
 
  body {
      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
-     background-color: #f6f8f9;
+     background-color: white;
      color: #151b26;
      font-size: 13px;
      /* overflow: hidden; */
@@ -383,7 +383,9 @@
   display: flex;
   flex-shrink: 0;
   padding: 0 20px;
+  justify-content: flex-end;
   z-index: 200;
+  height: 75px;
 }
 
 .navBar-top h3 {
@@ -401,12 +403,98 @@
   white-space: nowrap;
 }
 
+.navBar-topRight {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 500px;
+}
+
+.navBar-topRight * {
+  margin: 0 10px;
+}
+
 .body-content {
   display: flex;
   flex-direction: column;
   width:100%;
   height:auto;
   overflow:auto;
+}
+
+.topNavBar-search {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  border: 1px solid #d5dce0;
+  border-radius: 4px;
+  color: #151b26;
+  display: block;
+  padding: 1px 15px 0 30px;
+  position: relative;
+  top: 50%;
+  transition: background-color 0.15s ease-out,width 0.15s ease-out;
+  box-sizing: border-box;
+  width:250px;
+  background-color: #edf1f2;
+  border-color: #edf1f2;
+  height: 30px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.topNavBar-search:focus {
+  width: 500px;
+}
+
+.topNavBar-addButton {
+  background: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%);
+  align-items: center;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+  z-index: 0;
+}
+
+.topNavBar-addButton::after {
+  background: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%);
+  border-radius: 12px;
+  bottom: 0;
+  content: "";
+  height: 24px;
+  left: 0;
+  opacity: .5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .2s transform;
+  width: 24px;
+  z-index: -1;
+}
+
+.smallAvatar {
+  align-items: center;
+  background: center/cover #d5dce0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  vertical-align: top;
+  font-size: 11px;
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+  background-color: #4186e0;
+  cursor: pointer;
 }
 
 /* Home page */
@@ -671,6 +759,7 @@ h2 {
 
 .Home-container {
   background-color: white;
+  margin-top: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -763,4 +852,80 @@ h2 {
 .AddProjectTile-card:hover {
   color: #b7bfc6;
   fill: #b7bfc6;
+}
+
+/* New Project */
+
+.addProjectComponent-title {
+  align-self: center;
+  background-color: white;
+  color: #151b26;
+  flex: 1;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.addProjectComponent-form {
+  box-sizing: border-box;
+  background-color: white;
+  padding: 15px 30px 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+  color: #151b26;
+}
+
+.white-background {
+  background: #fff;
+  width:580px;
+}
+
+.addProject-label {
+  color: #848f99;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 10px;
+  padding-top: 2px;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.addProject-input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  border: 1px solid #d5dce0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 9px;
+  height: 40px;
+  padding-bottom: 9px;
+  padding-top: 9px;
+  margin-bottom: 30px;
+}
+
+.addProject-input:focus {
+  border-color: #9ca6af;
+  box-shadow: inset 0 1px #e0e6e8;
+  outline: none;
+}
+
+.addProject-buttonContainer {
+  padding-bottom: 15px;
+  padding-top: 30px;
+  text-align: right;
+}
+
+.addProject-button {
+  background-color: #14aaf5;
+  border-color: #14aaf5;
+  color: #fff;
+  fill: #fff;
 }

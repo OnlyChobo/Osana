@@ -73,8 +73,8 @@ class ProjectList extends React.Component {
 
     return (
       <div className = 'Home-container'>
-        <Modal show={this.state.show} handleClose={this.hideModal()}>
-          <AddProjectContainer />
+        <Modal show={this.state.show} handleClose={this.hideModal} color='white-background'>
+          <AddProjectContainer hideModal={this.hideModal.bind(this)}/>
         </Modal>
         <div className = 'HomeMiddle-container'>
           <div className = 'RecentProjects-container'>
