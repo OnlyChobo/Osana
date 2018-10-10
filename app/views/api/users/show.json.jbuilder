@@ -17,3 +17,11 @@ json.set! :teams do
     end
   end
 end
+
+json.set! :favourites do
+  @user.favourites.each do |favourite|
+    json.set! favourite.id do
+      json.extract! favourite, :id, :user_id, :project_id
+    end
+  end
+end

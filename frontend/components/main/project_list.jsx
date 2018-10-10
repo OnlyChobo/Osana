@@ -88,7 +88,7 @@ class ProjectList extends React.Component {
               <div
                 onClick = {() => this.hideProjects('favouriteOpen')}
                 className = 'RecentProjects-title'>
-                Favourite Projects
+                Favourites
               </div>
             </div>
             {favDisplay}

@@ -8,7 +8,7 @@ class SideNavTeamIconItem extends React.Component {
   render() {
     return (
       <div className='ProfileIcon'>
-        <img src='image.png'/>
+        
       </div>
     );
   }

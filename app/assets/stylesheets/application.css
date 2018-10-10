@@ -248,6 +248,15 @@
    background-color: rgba(255,255,255,0.08);
  }
 
+ .SideNavTopTitle {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: 16px;
+  justify-content: center;
+  margin: 20px 0;
+ }
+
  .app {
    display: flex;
    height: 100%;
@@ -535,11 +544,8 @@
 }
 
 .logo {
-  background: url(asset_path(“logo.png”)) no-repeat transparent 50%;
-  background-size: contain;
-  display: block;
-  height: 22px;
-  width: 112px;
+  background: transparent;
+  height: 16px;
 }
 
 .home-horizontal-nav {
@@ -798,8 +804,8 @@ h2 {
 }
 
 .TileStructure:hover {
-    background: #f6f8f9;
-    transform: translate3d(0, -5px, 0);
+  background: #f6f8f9;
+  transform: translate3d(0, -5px, 0);
 }
 
 .ProjectTile-card {
@@ -957,6 +963,10 @@ h2 {
   position: relative;
 }
 
+/* .user-dd-team-list-item:hover {
+  background: #14aaf5;
+} */
+
 .user-dd-list {
   max-height: 175px;
   margin: -5px 0;
@@ -966,4 +976,33 @@ h2 {
   display: block;
   border: 1px solid #e0e6e8;
   border-radius: 3px;
+}
+
+.user-search-dd-list {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.06);
+  box-sizing: border-box;
+  border: 1px solid #d5dce0;
+  position: absolute;
+  right: 117px;
+  width: 502px;
+  top: 55px;
+  z-index: 5000;
+
+}
+
+.user-search-dd-list-item {
+  background: #fff;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  height: 40px;
+  padding: 0 15px;
+}
+
+.user-search-dd-list-item:hover {
+  background: #14aaf5;
+  color: #fff;
+  fill: #fff;
 }

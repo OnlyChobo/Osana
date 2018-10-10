@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from './modal';
 import LogInContainer from '../users/login_container';
-import logo from '../../../app/assets/images/logo.png';
+import logo from '../../../app/assets/images/logo.svg';
 
 class Home extends React.Component {
   constructor(props) {

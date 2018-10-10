@@ -50,6 +50,16 @@ team_membership2 = TeamMembership.create(
   team_id: 1
 )
 
+favourite1 = Favourite.create(
+  user_id: 1,
+  project_id: 1
+)
+
+favourite1 = Favourite.create(
+  user_id: 1,
+  project_id: 2
+)
+
 project1 = Project.create(
   name: 'project1',
   description: 'it is very important',

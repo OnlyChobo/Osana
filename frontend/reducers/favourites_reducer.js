@@ -1,14 +1,14 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
-const teamMembershipsReducer = (state = {}, action) => {
+const favouritesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge( {}, state, action.payload.team_memberships);
+      return merge( {}, state, action.payload.favourites);
     default:
       return state;
   }
 };
 
-export default teamMembershipsReducer;
+export default favouritesReducer;
