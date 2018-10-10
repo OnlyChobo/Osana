@@ -2,21 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
-class Login extends React.Component {
+class AddProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      name: '',
+      description: '',
+      team_id: this.props.match.params.teamId
     };
     this.submitInput = this.submitInput.bind(this);
   }
   submitInput(e) {
     e.preventDefault();
-    this.props.login(this.state).then(
-      data => {
-        this.props.history.push(`/teams/${Object.keys(data.payload.users)[0]}/home`);
-      }
+    this.props.createProject(this.state).then(
+
     );
     this.setState({
       email: '',
@@ -34,43 +33,35 @@ class Login extends React.Component {
         <form className='login-form' onSubmit={this.submitInput}>
           <div className = 'login-input-group'>
             <label htmlFor='login-email' className='label'>
-              Email Address
+              Project Name
             </label>
             <input
               id = 'login-email'
               className = 'input'
               type = 'text'
-              value = { this.state.email }
+              value = { this.state.name }
               placeholder = 'name@company.com'
-              onChange = {this.handleInput('email')}
+              onChange = {this.handleInput('name')}
             />
           </div>
           <div className = 'login-input-group'>
             <label htmlFor='login-password' className='label'>
-              Password
+              Description
             </label>
-            <input
+            <textarea
               id = 'login-password'
               className = 'input'
-              type = 'password'
-              value = { this.state.password }
+              value = { this.state.description }
               placeholder = 'Password'
-              onChange = {this.handleInput('password')}
+              onChange = {this.handleInput('description')}
             />
         </div>
 
-          <input className = 'button login-button' type='submit' value='Log In'/>
+          <input className = 'button login-button' type='submit' value='Create Project'/>
         </form>
-
-        <div className = 'login-forgot-container'>
-          <a href='#' className = 'login-forgot'>Forgot password?</a>
-        </div>
-        <div className = 'login-signup-container'>
-          <p className = 'login-signup' >Don't have an account? <a href='#'>Sign up</a></p>
-        </div>
       </div>
     );
   }
 }
 
-export default withRouter(Login);
+export default withRouter(AddProject);

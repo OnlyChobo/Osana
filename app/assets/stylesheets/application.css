@@ -27,6 +27,7 @@
      font-size: 100%;
      font-family: inherit;
      vertical-align: baseline;
+     background-color: white;
  }
 
  html, body {
@@ -41,8 +42,7 @@
      background-color: #f6f8f9;
      color: #151b26;
      font-size: 13px;
-     overflow: hidden;
-     -moz-box-sizing: border-box;
+     /* overflow: hidden; */
      box-sizing: border-box;
  }
 
@@ -74,7 +74,8 @@
      color: white;
      border-bottom: 1px solid #222b37;
      padding-bottom: 10px;
-     width: 250px;
+     min-width: 250px;
+     height: 100%;
  }
 
  div {
@@ -249,6 +250,8 @@
 
  .app {
    display: flex;
+   height: 100%;
+   width: 100%;
  }
 
 
@@ -278,6 +281,7 @@
 
 .login-form {
   display: block;
+  background-color: #f6f8f9;
   margin-left: 21.5%;
   margin-right: 21.5%;
   padding-bottom: 32px;
@@ -286,6 +290,7 @@
 
 .label {
   display: block;
+  background-color: #f6f8f9;
   margin-bottom: 8px;
   font-size: 16px;
   color: rgb(100, 111, 121);
@@ -362,6 +367,7 @@
 }
 
 .login-signup {
+  background-color: #f6f8f9;
   color: #9ca6af;
   margin-bottom: 32px;
   margin-top: 16px;
@@ -369,9 +375,6 @@
   font-weight: 400px;
 }
 
-.app {
-  display: flex;
-}
 
 .navBar-top {
   color: black;
@@ -401,13 +404,15 @@
 .body-content {
   display: flex;
   flex-direction: column;
+  width:100%;
+  height:auto;
+  overflow:auto;
 }
 
 /* Home page */
 
 .home-main {
   overflow:auto;
-  height: 600px;
   float: left;
   background-color: white;
 }
@@ -637,4 +642,125 @@ h2 {
 
 .display-none {
   display: none;
+}
+
+/* project list */
+
+.RecentProjects-header {
+  align-items: center;
+  border-bottom: 2px solid #edf1f2;
+  display: flex;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 10px 0;
+  position: relative;
+  max-width: 800px;
+}
+
+.RecentProjects-title {
+  box-sizing: border-box;
+  color: #151b26;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.Home-container {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.HomeMiddle-container {
+  width: 850px;
+
+}
+
+
+.ProjectList {
+  display: flex;
+  flex-flow: row wrap;
+  padding-left: 15px;
+}
+
+.TileStructure {
+  border-radius: 25px;
+  box-sizing: border-box;
+  height: 211px;
+  min-width: 150px;
+  padding: 15px 0;
+  width: 150px;
+  align-items: center;
+  background: rgba(246,248,249,0);
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.TileStructure:hover {
+    background: #f6f8f9;
+    transform: translate3d(0, -5px, 0);
+}
+
+.ProjectTile-card {
+  border-radius: 20px;
+  height: 120px;
+  width: 120px;
+  box-shadow: inset 0 -2px rgba(0,0,0,0.05);
+  align-items: center;
+  background: #b7bfc6;
+  display: flex;
+  fill: #fff;
+  flex-direction: column;
+  justify-content: center;
+  flex-flow: column;
+  position: relative;
+}
+
+.TileStructure-name {
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 0 10px;
+  color: #151b26;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  max-height: 34px;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.AddProjectTile-card {
+    border-radius: 20px;
+    height: 120px;
+    width: 120px;
+    align-items: center;
+    border: 2px dashed;
+    box-sizing: border-box;
+    color: #d5dce0;
+    display: flex;
+    fill: #d5dce0;
+    justify-content: center;
+    position: relative;
+    font-size: 18px;
+}
+
+.AddTileStructure-name {
+  color: #848f99;
+}
+
+.AddProjectTile-card:hover {
+  color: #b7bfc6;
+  fill: #b7bfc6;
 }

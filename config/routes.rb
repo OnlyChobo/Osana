@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :show, :create]
     resources :projects, only: [:index, :show, :create]
     resources :team_memberships, only: [:create, :update, :destroy, :show, :index]
+    resources :teams, only: [:show]
   end
 end

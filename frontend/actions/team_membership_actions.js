@@ -37,14 +37,14 @@ export const createTeamMembership = (membership) => dispatch => (
   )
 );
 
-export const updateTeamMembership = (membership) => dispatch => (
-  APIUtil.updateTeamMembership(membership).then(
-    teamMembership => dispatch(receiveTeamMemberships(teamMemberships))
-  )
-);
+// export const updateTeamMembership = (membership) => dispatch => (
+//   APIUtil.updateTeamMembership(membership).then(
+//     teamMembership => dispatch(receiveTeamMemberships(teamMemberships))
+//   )
+// );
 
-export const deleteTeamMembership = (id) => dispatch => (
-  APIUtil.deleteTeamMembership(id).then(
-    teamMembership => dispatch(removeTeamMemberships(id))
-  )
-);
+// export const deleteTeamMembership = (id) => dispatch => (
+//   APIUtil.deleteTeamMembership(id).then(
+//     teamMembership => dispatch(removeTeamMemberships(id))
+//   )
+// );

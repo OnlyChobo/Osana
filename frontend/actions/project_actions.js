@@ -23,3 +23,8 @@ export const fetchAllProjects = () => dispatch => (
   APIUtil.fetchAllProjects()
     .then(projects => dispatch(receiveProjects(projects)))
 );
+
+export const createProject = project => dispatch => (
+  APIUtil.createProject(project)
+    .then(project => dispatch(receiveProject(project)))
+);

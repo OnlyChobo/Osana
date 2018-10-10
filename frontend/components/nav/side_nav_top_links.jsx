@@ -10,8 +10,6 @@ class SideNavTopLinks extends React.Component {
       <div className = 'SideNavTopLinks'>
         <a className = 'SideNavItemRow NavPage' href="#">Home</a>
         <a className = 'SideNavItemRow NavPage' href="#">My Tasks</a>
-        <a className = 'SideNavItemRow NavPage' href="#">Inbox</a>
-        <a className = 'SideNavItemRow NavPage' href="#">Dashboard</a>
       </div>
     );
   }

@@ -27,3 +27,28 @@ export const deleteTeamMemberships = (id) => $.ajax({
   url: `api/team_memberships/${id}`,
   method: 'DELETE'
 });
+
+// export const fetchTeams = () => $.ajax({
+//   url: `api/teams`
+// });
+
+export const fetchTeam = (id) => $.ajax({
+  url: `api/teams/${id}`
+});
+
+export const createProject = (project) => $.ajax({
+  url: 'api/projects',
+  method: 'POST',
+  data: {project}
+});
+//
+// export const updateTeams = (team) => $.ajax({
+//   url: 'api/teams',
+//   method: 'PATCH',
+//   data: {team}
+// });
+//
+// export const deleteTeams = (id) => $.ajax({
+//   url: `api/teams/${id}`,
+//   method: 'DELETE'
+// });

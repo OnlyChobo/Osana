@@ -1,10 +1,12 @@
 json.set! :users do
-  json.extract! @user, :id, :username, :email
+  json.set! @user.id do
+    json.extract! @user, :id, :username, :email
+  end
 end
-json.set! :projects do
-  @user.projects.each do |project|
-    json.set! project.id do
-      json.extract! project, :id, :name, :description, :team_id
+json.set! :team_memberships do
+  @user.team_memberships.each do |team_membership|
+    json.set! team_membership.id do
+      json.extract! team_membership, :id, :user_id, :team_id
     end
   end
 end
