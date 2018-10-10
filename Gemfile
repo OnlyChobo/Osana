@@ -66,3 +66,4 @@ gem 'react-rails'
 
 gem 'annotate'
 gem 'pry-rails'
+gem 'rails_12factor'
