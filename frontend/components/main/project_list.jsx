@@ -15,6 +15,12 @@ class ProjectList extends React.Component {
     this.props.fetchTeam(this.props.match.params.teamId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.teamId !== nextProps.match.params.teamId) {
+      this.props.fetchTeam(nextProps.match.params.teamId);
+    }
+  }
+
   hideProjects (comp) {
     this.setState({[comp]: !this.state[comp]});
   }
@@ -73,7 +79,7 @@ class ProjectList extends React.Component {
 
     return (
       <div className = 'Home-container'>
-        <Modal show={this.state.show} handleClose={this.hideModal} color='white-background'>
+        <Modal show={this.state.show} handleClose={this.hideModal.bind(this)} color='white-background'>
           <AddProjectContainer hideModal={this.hideModal.bind(this)}/>
         </Modal>
         <div className = 'HomeMiddle-container'>

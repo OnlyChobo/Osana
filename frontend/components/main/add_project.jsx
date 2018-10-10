@@ -1,26 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import merge from 'lodash/merge';
 
 class AddProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      description: '',
-      team_id: this.props.match.params.teamId
+      description: ''
     };
     this.submitInput = this.submitInput.bind(this);
   }
   submitInput(e) {
     e.preventDefault();
-    this.props.createProject(this.state).then(
-      data => this.props.hideModal()()
+    const newState = this.state;
+    newState.team_id = this.props.match.params.teamId;
+    this.props.createProject(newState).then(
+      data => {
+        this.setState({email: '', password: ''});
+        this.props.hideModal()();
+      }
     );
-    this.setState({
-      email: '',
-      password: ''
-    });
   }
 
   handleInput(property) {

@@ -22,9 +22,27 @@ team1 = Team.create(
   name: 'superteam'
 )
 
+team2 = Team.create(
+  name: 'Best team'
+)
+
+team3 = Team.create(
+  name: 'Bad team'
+)
+
 team_membership1 = TeamMembership.create(
   user_id: 1,
   team_id: 1
+)
+
+team_membership2 = TeamMembership.create(
+  user_id: 1,
+  team_id: 2
+)
+
+team_membership3 = TeamMembership.create(
+  user_id: 1,
+  team_id: 3
 )
 
 team_membership2 = TeamMembership.create(

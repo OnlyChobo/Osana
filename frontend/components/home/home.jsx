@@ -21,7 +21,7 @@ class Home extends React.Component {
     return (
       <div className='home-main'>
         <div className='home-header-row'>
-          <Modal show={this.state.show} handleClose={this.hideModal()}>
+          <Modal show={this.state.show} handleClose={this.hideModal.bind(this)} color={null}>
             <LogInContainer />
           </Modal>
           <div className='home-nav-logo'>
