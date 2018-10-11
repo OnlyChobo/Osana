@@ -5,7 +5,7 @@ const Modal = ({ handleClose, show, color, children }) => {
   return (
     <div className={showHideClassName} onClick={handleClose()}>
       <section className={"modal-main " + color} onClick={ e => e.stopPropagation()}>
-        <button className='modal-close-button' onClick={handleClose()}><i className="fas fa-times"></i></button>
+        <i className="modal-close-button fas fa-times" onClick={handleClose()}></i>
         {children}
 
       </section>

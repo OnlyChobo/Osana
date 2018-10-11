@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from './modal';
 import LogInContainer from '../users/login_container';
-import logo from '../../../app/assets/images/logo.svg';
+import logo from '../../../app/assets/images/logo-home.png';
 
 class Home extends React.Component {
   constructor(props) {
@@ -27,7 +27,6 @@ class Home extends React.Component {
           <div className='home-nav-logo'>
             <img src= {logo} />
           </div>
-          <div className='home-nav-space'></div>
           <nav className='home-horizontal-nav'>
             <a className='home-horizontal-nav-item' >Tour</a>
             <a className='home-horizontal-nav-item' >Product</a>
@@ -38,7 +37,7 @@ class Home extends React.Component {
             <a className='home-start-trial' >Start Free Trial</a>
           </nav>
         </div>
-        <div>
+        <div className='home-text-main-container'>
           <div className='home-text-container'>
             <h3>Make more time for the work that matters most</h3>
             <h2>

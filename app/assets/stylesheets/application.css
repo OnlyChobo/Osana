@@ -299,8 +299,6 @@ div {
 .login-form {
   display: block;
   background-color: #f6f8f9;
-  margin-left: 21.5%;
-  margin-right: 21.5%;
   padding-bottom: 32px;
   padding-top: 48px;
 }
@@ -519,7 +517,8 @@ div {
 /* Home page */
 
 .home-main {
-  overflow:auto;
+  width: 100%;
+  overflow: auto;
   float: left;
   background-color: white;
 }
@@ -527,6 +526,7 @@ div {
 .home-header-row {
   box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
@@ -537,7 +537,6 @@ div {
   height: 56px;
   padding-left: 16px;
   padding-right: 16px;
-  margin-bottom: 96px;
   position: relative;
 }
 
@@ -547,7 +546,7 @@ div {
 }
 
 .home-nav-logo img {
-  height: 24px;
+  height: 22px;
   width: 112px;
 }
 
@@ -567,17 +566,21 @@ div {
 
 .home-horizontal-nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 69.33%;
-  max-width: 69.33%;
+  /* flex-basis: 69.33%;
+  max-width: 69.33%; */
 }
 
-.home-nav-space {
+.home-horizontal-nav > * {
+  margin-left: 32px;
+}
+
+/* .home-nav-space {
   flex-basis: 14%;
   max-width: 14%;
-}
+} */
 
 .home-horizontal-nav-item {
   color: #646f79;
@@ -634,16 +637,26 @@ h3 {
 h2 {
   color: #646f79;
   font-weight: 300;
-  margin-bottom: 32px;
   margin-top: 0;
   font-size: 26px;
   line-height: 36px;
   text-align: center;
 }
 
+.home-text-main-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 72px;
+  margin-bottom: 48px;
+}
+
 .home-text-container {
-  margin-left: 16%;
-  margin-right: 16%;
+  max-width: 905px;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .home-form-container {
@@ -731,11 +744,21 @@ h2 {
   margin-top: 80px;
   padding: 32px;
   position: relative;
-  width: 80%;
+  width: 90%;
   max-width: 900px;
+  padding-left: 112px;
+  padding-right: 112px;
+  box-sizing: border-box;
+}
+
+.test {
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .modal-close-button {
+  padding: 0;
+  margin: 0;
   position: absolute;
   right: 20px;
   top: 20px;
