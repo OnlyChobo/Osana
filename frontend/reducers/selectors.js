@@ -7,3 +7,8 @@ export const allProjects = ({projects}) => (
 export const allTeams = ({teams}) => (
   Object.keys(teams).map( id => teams[id] )
 );
+
+export const allFavourites = ({projects, favourites}) => {
+  const favIds = Object.values(favourites).map ( favourite => favourite.projectId);
+  return Object.values(projects).filter ( project => favIds.includes(project.id) );
+}

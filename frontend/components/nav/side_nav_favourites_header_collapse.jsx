@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import SideNavFavouritesBody from './side_nav_favourites_body';
+import SideNavFavouritesBodyContainer from './side_nav_favourites_body_container';
 
 class SideNavFavouritesHeaderCollapse extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class SideNavFavouritesHeaderCollapse extends React.Component {
   render () {
     let html;
     if (this.state.open) {
-      html = <SideNavFavouritesBody/>;
+      html = <SideNavFavouritesBodyContainer/>;
     }
     return (
       <div className = 'SideNavCollapsibleHeader'>

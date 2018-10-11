@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import SideNavReportsItem from './side_nav_reports_item';
 
-class SideNavReportsContainer extends React.Component {
+class SideNavReportsBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {open: true};
@@ -33,4 +33,4 @@ class SideNavReportsContainer extends React.Component {
   }
 }
 
-export default SideNavReportsContainer;
+export default SideNavReportsBox;

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import SideNavTeamItem from './side_nav_team_item';
 import SideNavTeamIconItem from './side_nav_team_icon_item';
 
-class SideNavTeamContainer extends React.Component {
+class SideNavTeamBox extends React.Component {
   render() {
     return (
       <div className='SideNavSection'>
@@ -16,9 +16,7 @@ class SideNavTeamContainer extends React.Component {
           <div className='SideNavTeamInvite'>Invite People</div>
         </div>
         <div>
-          <SideNavTeamItem name="Project1"/>
-          <SideNavTeamItem name="Project2"/>
-          <SideNavTeamItem name="Project3"/>
+          {this.props.projects.map (project => <SideNavTeamItem key={project.id} name={project.name}/>)}
         </div>
 
       </div>
@@ -26,4 +24,4 @@ class SideNavTeamContainer extends React.Component {
   }
 }
 
-export default SideNavTeamContainer;
+export default SideNavTeamBox;

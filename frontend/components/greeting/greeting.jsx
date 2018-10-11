@@ -49,8 +49,15 @@ class Greeting extends React.Component {
   render () {
     const currentUser = this.props.currentUser;
     let {dropdownActive, searchBar} = this.state;
+    let html;
+    if (!this.props.leftNavStatus) {
+      html = (<i className="fas fa-bars fa-lg" onClick = {() => this.props.toggleLeftNav()}></i>);
+    }
     return (
       <div className = 'navBar-top'>
+        <div>
+          {html}
+        </div>
         <div className = 'navBar-topRight'>
           <div>
             <input type='text'

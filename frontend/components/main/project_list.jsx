@@ -46,7 +46,7 @@ class ProjectList extends React.Component {
     if (this.state.favouriteOpen) {
       favDisplay = (
         <div className = 'ProjectList'>
-          {recentProjects.map(
+          {this.props.favourites.map(
             project =>
             <div className='TileStructure' key={project.id}>
               <div className='ProjectTile-card'></div>

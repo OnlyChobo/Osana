@@ -1,5 +1,5 @@
 import React from 'react';
-import SideNavContainer from './nav/side_nav_container';
+import SideNavBoxContainer from './nav/side_nav_box_container';
 import TaskListContainer from './tasks/task_list_container';
 import ProjectListContainer from './main/project_list_container';
 import GreetingContainer from './greeting/greeting_container';
@@ -10,7 +10,7 @@ class Dashboard extends React.Component {
   render () {
     return (
       <div className='app'>
-        <SideNavContainer/>
+        <SideNavBoxContainer/>
         <div className='body-content'>
           <GreetingContainer/>
           <Route path='/teams/:teamId/home' component={ProjectListContainer}/>

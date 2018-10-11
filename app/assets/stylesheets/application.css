@@ -35,6 +35,7 @@
      font-size: 13px;
      line-height: normal;
      text-rendering: optimizeLegibility;
+     width: 100%;
  }
 
  body {
@@ -65,22 +66,29 @@
   white-space: nowrap;
 }
 
+body {
+  height: 100%;
+}
 
 
- .SideNavContainer {
-     background-color: #151b26;
-     display: flex;
-     flex-direction: column;
-     color: white;
-     border-bottom: 1px solid #222b37;
-     padding-bottom: 10px;
-     min-width: 250px;
-     height: 100%;
- }
 
- div {
-     display: block;
- }
+.SideNavBox {
+  background-color: #151b26;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-bottom: 1px solid #222b37;
+  padding-bottom: 10px;
+  min-width: 250px;
+  height: 100%;
+  transition: margin-left 250ms ease-out,transform 250ms ease-out;
+  height: 100vh;
+  visibility: auto;
+}
+
+div {
+  display: block;
+}
 
  .SideNavTopLinks {
      color: white;
@@ -89,7 +97,7 @@
      font-weight: 400;
  }
 
- .SideNavContainer a {
+ .SideNavBox a {
      color: white;
  }
 
@@ -253,8 +261,8 @@
   display: flex;
   flex-shrink: 0;
   height: 16px;
-  justify-content: center;
   margin: 20px 0;
+  justify-content: space-between;
  }
 
  .app {
@@ -392,7 +400,7 @@
   display: flex;
   flex-shrink: 0;
   padding: 0 20px;
-  justify-content: flex-end;
+  justify-content: space-between;
   z-index: 200;
   height: 75px;
 }
@@ -546,6 +554,15 @@
 .logo {
   background: transparent;
   height: 16px;
+  margin-left: 15px;
+}
+
+.fas {
+  background: transparent;
+  color: #9ca6af;
+  margin-right: 15px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .home-horizontal-nav {
@@ -715,6 +732,7 @@ h2 {
   padding: 32px;
   position: relative;
   width: 80%;
+  max-width: 900px;
 }
 
 .modal-close-button {

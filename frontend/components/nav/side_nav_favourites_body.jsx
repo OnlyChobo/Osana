@@ -11,9 +11,7 @@ class SideNavFavouritesBody extends React.Component {
     return (
       <div>
         <div>
-          <SideNavFavouritesItem name="Project1"/>
-          <SideNavFavouritesItem name="Project2"/>
-          <SideNavFavouritesItem name="Project3"/>
+          {this.props.favourites.map (favourite => <SideNavFavouritesItem key={favourite.id} name={favourite.name}/>)}
         </div>
         <SideNavFavouritesOptions/>
       </div>
