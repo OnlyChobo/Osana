@@ -1,6 +1,6 @@
 json.set! :users do
   json.set! @user.id do
-    json.extract! @user, :id, :username, :email
+    json.extract! @user, :id, :email, :fname, :lname, :username, :role, :department, :pronoun, :about_me, :vacation_ind
   end
 end
 json.set! :team_memberships do

@@ -2,6 +2,12 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 class UserDropdown extends React.Component {
+  handleLogout() {
+    this.props.logout().then(() => {
+      this.props.history.push(`/`);
+    });
+  }
+
   render () {
     return (
       <div className="user-dd-wrapper">
@@ -17,8 +23,8 @@ class UserDropdown extends React.Component {
 
         </ul>
         <ul className="user-dd-list">
-          <li className="user-dd-team-list-item">My Profile Settings...</li>
-          <li className="user-dd-team-list-item" onClick = {this.props.logout}>Log Out</li>
+          <li className="user-dd-team-list-item" onClick = {() => this.props.openModal('profile')}>My Profile Settings...</li>
+          <li className="user-dd-team-list-item" onClick = {() => this.handleLogout()}>Log Out</li>
         </ul>
       </div>
     );

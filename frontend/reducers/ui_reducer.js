@@ -1,20 +1,10 @@
-import { TOGGLE_LEFT_NAV } from '../actions/ui_actions';
-import merge from 'lodash/merge';
+import {combineReducers} from 'redux';
+import modalReducer from './modal_reducer';
+import navBarReducer from './nav_bar_reducer';
 
-const defaultState = {
-  leftNav: true
-};
-
-const uiReducer = (state = defaultState, action) => {
-  Object.freeze(state);
-  switch(action.type) {
-    case TOGGLE_LEFT_NAV:
-      const newState = merge( {}, state );
-      newState.leftNav = !newState.leftNav;
-      return newState;
-    default:
-      return state;
-  }
-};
+const uiReducer = combineReducers({
+  modal: modalReducer,
+  navBar: navBarReducer
+});
 
 export default uiReducer;

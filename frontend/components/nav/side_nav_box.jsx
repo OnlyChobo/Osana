@@ -10,7 +10,9 @@ class SideNavBox extends React.Component {
     super(props);
     this.toggleNav = this.toggleNav.bind(this);
   }
-
+  componentDidMount() {
+    this.props.getUserInfo(this.props.currentUser);
+  }
   toggleNav (e) {
     return this.props.toggleLeftNav();
   }

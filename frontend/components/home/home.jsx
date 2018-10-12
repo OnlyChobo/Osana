@@ -1,6 +1,4 @@
 import React from 'react';
-import Modal from './modal';
-import LogInContainer from '../users/login_container';
 import logo from '../../../app/assets/images/logo-home.png';
 
 class Home extends React.Component {
@@ -9,21 +7,10 @@ class Home extends React.Component {
     this.state = { show: false };
   }
 
-  showModal() {
-    return () => this.setState({ show: true });
-  }
-
-  hideModal() {
-    return () => this.setState({ show: false });
-  }
-
   render () {
     return (
       <div className='home-main'>
         <div className='home-header-row'>
-          <Modal show={this.state.show} handleClose={this.hideModal.bind(this)} color={null}>
-            <LogInContainer />
-          </Modal>
           <div className='home-nav-logo'>
             <img src= {logo} />
           </div>
@@ -33,8 +20,8 @@ class Home extends React.Component {
             <a className='home-horizontal-nav-item' >Pricing</a>
             <a className='home-horizontal-nav-item' >Contact Sales</a>
             <a className='home-horizontal-nav-item' >Learn more</a>
-            <a className='home-horizontal-nav-item' onClick={this.showModal()}>Log In</a>
-            <a className='home-start-trial' >Start Free Trial</a>
+            <a className='home-horizontal-nav-item' onClick={() => this.props.openModal('login')} >Log In</a>
+            <a className='home-start-trial' onClick={() => this.props.openModal('signup')} >Start Free Trial</a>
           </nav>
         </div>
         <div className='home-text-main-container'>

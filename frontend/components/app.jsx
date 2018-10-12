@@ -1,11 +1,13 @@
 import React from 'react';
-import Home from './home/home';
+import HomeContainer from './home/home_container';
 import Dashboard from './dashboard';
 import { Route } from 'react-router-dom';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
-    <Route path='/' exact component={Home} />
+    <Modal />
+    <Route path='/' exact component={HomeContainer} />
     <Route path='/teams/:teamId' component={Dashboard} />
   </div>
 );

@@ -1,23 +1,10 @@
-import {
-  RECEIVE_CURRENT_USER,
-  LOGOUT_CURRENT_USER
-} from '../actions/session_actions';
-import merge from 'lodash/merge';
+import {combineReducers} from 'redux';
+import sessionUserReducer from './session_user_reducer';
+import sessionTeamReducer from './session_team_reducer';
 
-const _nullUser = {
-  id: null
-};
-
-const sessionReducer = (state = _nullUser, action) => {
-  Object.freeze(state);
-  switch(action.type) {
-    case RECEIVE_CURRENT_USER:
-      return { id: Object.keys(action.payload.users)[0]};
-    case LOGOUT_CURRENT_USER:
-      return _nullUser;
-    default:
-      return state;
-  }
-};
+const sessionReducer = combineReducers({
+  id: sessionUserReducer,
+  teamId: sessionTeamReducer
+});
 
 export default sessionReducer;

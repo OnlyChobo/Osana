@@ -20,3 +20,10 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+
+export const getUserInfo = (user) => (
+  $.ajax({
+    url: `/api/users/${user.id}`
+  })
+);

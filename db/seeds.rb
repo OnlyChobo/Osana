@@ -8,13 +8,15 @@
 
 user1 = User.create(
   email: 'a@b.c',
-  username: 'danny',
+  fname: 'Danny',
+  lname: 'Xu',
   password: 'catcat'
 )
 
 user2 = User.create(
   email: 'b@c.d',
-  username: 'bob',
+  fname: 'Alice',
+  lname: 'Yang',
   password: 'catcat'
 )
 
@@ -50,16 +52,6 @@ team_membership2 = TeamMembership.create(
   team_id: 1
 )
 
-favourite1 = Favourite.create(
-  user_id: 1,
-  project_id: 1
-)
-
-favourite1 = Favourite.create(
-  user_id: 1,
-  project_id: 2
-)
-
 project1 = Project.create(
   name: 'project1',
   description: 'it is very important',
@@ -78,6 +70,15 @@ project3 = Project.create(
   team_id: 1
 )
 
+favourite1 = Favourite.create(
+  user_id: 1,
+  project_id: 1
+)
+
+favourite1 = Favourite.create(
+  user_id: 1,
+  project_id: 2
+)
 
 
 #

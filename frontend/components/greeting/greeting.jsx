@@ -1,6 +1,6 @@
 import React from 'react';
-import UserDropdown from './user_dropdown';
-import AddDropdown from './add_dropdown';
+import UserDropdownContainer from './user_dropdown_container';
+import AddDropdownContainer from './add_dropdown_container';
 import SearchBarDropdown from './search_bar_dropdown';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
@@ -11,15 +11,10 @@ class Greeting extends React.Component {
     this.state = {
       dropdownActive: 'none',
       searchBar: false,
-      selectedProjects: []
+      selectedProjects: [],
+      initial: this.props.currentUser.fname[0]+this.props.currentUser.lname[0]
     };
     this.handleSearch = this.handleSearch.bind(this);
-  }
-
-  handleLogout() {
-    this.props.logout().then(() => {
-      this.props.history.push(`/`);
-    });
   }
 
   handleDropdown(button) {
@@ -69,11 +64,13 @@ class Greeting extends React.Component {
           </div>
           <div>
             <a className='topNavBar-addButton' onClick={()=>this.handleDropdown('add')}>+</a>
-            { dropdownActive === 'add' ? <AddDropdown/> : <div></div>}
+            { dropdownActive === 'add' ? <AddDropdownContainer/> : <div></div>}
           </div>
           <div>
-            <div className='smallAvatar' onClick={()=>this.handleDropdown('avatar')}>DX</div>
-            { dropdownActive === 'avatar' ? <UserDropdown teams={this.props.teams} logout={this.handleLogout.bind(this)} /> : <div></div>}
+            <div className='smallAvatar' onClick={()=>this.handleDropdown('avatar')}>
+              {this.state.initial}
+            </div>
+            { dropdownActive === 'avatar' ? <UserDropdownContainer /> : <div></div>}
           </div>
         </div>
       </div>

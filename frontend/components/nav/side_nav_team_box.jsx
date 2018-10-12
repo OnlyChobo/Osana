@@ -10,9 +10,9 @@ class SideNavTeamBox extends React.Component {
           <span className='SideNavTeamTitle-name'>Team</span>
         </div>
         <div className='SideNavTeamMemberList'>
-          <SideNavTeamIconItem />
-          <SideNavTeamIconItem />
-          <SideNavTeamIconItem />
+          <div>
+            {this.props.teamMembers.map (teamMember => <SideNavTeamIconItem key={teamMember.id} teamMember={teamMember}/>)}
+          </div>
           <div className='SideNavTeamInvite'>Invite People</div>
         </div>
         <div>

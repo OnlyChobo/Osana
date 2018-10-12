@@ -10,9 +10,7 @@ class Api::ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    p 'test'
-    p params[:id]
-    p @project
+
   end
 
   def index

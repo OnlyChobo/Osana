@@ -1,4 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
+import { CLOSE_MODAL, closeModal } from './ui_actions';
+
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -19,19 +21,28 @@ export const receiveErrors = (errors) => ({
 });
 
 export const signup = currentUser => dispatch => (
-  APIUtil.signup(currentUser).then(
-    currentUser => dispatch(receiveCurrentUser(currentUser))
-  )
+  APIUtil.signup(currentUser).then(currentUser => (
+    dispatch(receiveCurrentUser(currentUser))
+  ), err => (
+    dispatch(receiveErrors(err.responseJSON))
+  ))
 );
 
 export const login = currentUser => dispatch => (
-  APIUtil.login(currentUser).then(
-    currentUser => dispatch(receiveCurrentUser(currentUser))
-  )
+  APIUtil.login(currentUser).then(currentUser => (
+    dispatch(receiveCurrentUser(currentUser))
+  ), err => (
+    dispatch(receiveErrors(err.responseJSON))
+  ))
 );
 
 export const logout = () => dispatch => (
-  APIUtil.logout().then(
-    () => dispatch(logoutCurrentUser())
-  )
+  APIUtil.logout().then(() => (
+    dispatch(logoutCurrentUser())
+  ))
 );
+
+export const getUserInfo = currentUser => dispatch => (
+  APIUtil.getUserInfo(currentUser).then(currentUser => (
+    dispatch(receiveCurrentUser(currentUser))
+)));

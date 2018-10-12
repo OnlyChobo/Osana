@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from '../home/modal';
 import AddProjectContainer from './add_project_container';
 
 class ProjectList extends React.Component {
@@ -23,14 +22,6 @@ class ProjectList extends React.Component {
 
   hideProjects (comp) {
     this.setState({[comp]: !this.state[comp]});
-  }
-
-  showModal() {
-    return () => this.setState({ show: true });
-  }
-
-  hideModal() {
-    return () => this.setState({ show: false });
   }
 
   render() {
@@ -67,7 +58,7 @@ class ProjectList extends React.Component {
               <div className='TileStructure-name'>{project.name}</div>
             </div>
           )}
-          <div className='TileStructure' onClick={this.showModal()}>
+          <div className='TileStructure' onClick={() => this.props.openModal('addProject')}>
             <div className='AddProjectTile-card'>+</div>
             <div className='TileStructure-name AddTileStructure-name'>
               New Project
@@ -79,9 +70,6 @@ class ProjectList extends React.Component {
 
     return (
       <div className = 'Home-container'>
-        <Modal show={this.state.show} handleClose={this.hideModal.bind(this)} color='white-background'>
-          <AddProjectContainer hideModal={this.hideModal.bind(this)}/>
-        </Modal>
         <div className = 'HomeMiddle-container'>
           <div className = 'RecentProjects-container'>
             <div className = 'RecentProjects-header'>

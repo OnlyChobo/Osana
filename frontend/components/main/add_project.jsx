@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class AddProject extends React.Component {
@@ -15,11 +14,11 @@ class AddProject extends React.Component {
   submitInput(e) {
     e.preventDefault();
     const newState = this.state;
-    newState.team_id = this.props.match.params.teamId;
+    newState.team_id = this.props.teamId;
     this.props.createProject(newState).then(
       data => {
         this.setState({email: '', password: ''});
-        this.props.hideModal()();
+        this.props.closeModal();
       }
     );
   }
@@ -29,7 +28,8 @@ class AddProject extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className = 'profile-container'>
+        <i onClick={this.props.closeModal} className="modal-close-button fas fa-times"></i>
         <div className = 'addProjectComponent-title'>New Project</div>
         <form className= 'addProjectComponent-form' onSubmit={this.submitInput}>
           <label htmlFor='projectName' className='addProject-label'>
@@ -61,4 +61,4 @@ class AddProject extends React.Component {
   }
 }
 
-export default withRouter(AddProject);
+export default AddProject;

@@ -4,7 +4,9 @@
 #
 #  id              :bigint(8)        not null, primary key
 #  email           :string           not null
-#  username        :string           not null
+#  username        :string
+#  fname           :string           not null
+#  lname           :string           not null
 #  bcrypt_password :string           not null
 #  session_token   :string           not null
 #  role            :string
@@ -17,8 +19,8 @@
 #
 
 class User < ApplicationRecord
-  validates :email, :username, :bcrypt_password, :session_token, presence: true
-  validates :username, :email, uniqueness: true
+  validates :email, :fname, :lname, :bcrypt_password, :session_token, presence: true
+  validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
   attr_reader :password

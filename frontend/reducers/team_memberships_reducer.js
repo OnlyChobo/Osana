@@ -5,7 +5,7 @@ const teamMembershipsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge( {}, state, action.payload.team_memberships);
+      return merge( {}, state, action.payload.teamMemberships);
     default:
       return state;
   }

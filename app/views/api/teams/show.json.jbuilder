@@ -1,3 +1,7 @@
+json.set! :team do
+  json.extract! @team, :id
+end
+
 json.set! :users do
   @team.members.each do |member|
     json.set! member.id do
