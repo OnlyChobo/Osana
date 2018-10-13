@@ -16,4 +16,7 @@ class Project < ApplicationRecord
   belongs_to :team
   has_many :favourites
   has_many :sections
+  has_many :tasks,
+  through: :sections,
+  source: :tasks
 end

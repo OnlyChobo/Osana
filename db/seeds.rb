@@ -80,35 +80,49 @@ favourite1 = Favourite.create(
   project_id: 2
 )
 
+section1 = Section.create(
+  name: 'section1',
+  order: 1,
+  project_id: 1
+)
 
-#
-# task1 = Task.new(
-#   name: 'task1',
-#   order: 1,
-#   description: 'something about task 1',
-#   due_date: nil,
-#   completed: false,
-#   section_id: 1
-# )
-#
-# task1 = Task.create(
-#   name: 'task2',
-#   order: 2,
-#   description: 'something about task 2',
-#   user_assigned: user1,
-#   user_completed: user1,
-#   due_date: nil,
-#   completed: true,
-#   section_id: 1
-# )
-#
-# task1 = Task.create(
-#   name: 'task3',
-#   order: 3,
-#   description: 'something about task 3',
-#   user_assigned: user1,
-#   user_completed: user1,
-#   due_date: nil,
-#   completed: true,
-#   section_id: 1
-# )
+section2 = Section.create(
+  name: 'Current',
+  order: 2,
+  project_id: 1
+)
+
+
+task1 = Task.create(
+  name: 'aeger erah aehre arh earhearh eh earh ',
+  order: 1,
+  description: 'something about task 1',
+  due_date: nil,
+  completed: false,
+  section_id: 2
+)
+
+task2 = Task.create(
+  name: 'ta erhearherah aerh earh earh aerh earh erh earh',
+  order: 2,
+  description: 'something about task 2',
+  due_date: nil,
+  completed: true,
+  section_id: 2
+)
+
+task3 = Task.create(
+  name: 'taerhaerhearh erah aetjstyk tdkty earh erh',
+  order: 3,
+  description: 'something about task 3',
+  section_id: 2
+)
+
+task4 = Task.create(
+  name: 'aeth aeth artj eatjaejae jartjeat hteh aeth eat et t',
+  order: 4,
+  description: 'something about task 3',
+  user_assigned_id: 1,
+  user_completed_id: 1,
+  section_id: 2
+)

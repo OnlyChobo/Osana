@@ -27,7 +27,9 @@ class SideNavBox extends React.Component {
       <div className = {navClass}>
         <div className = 'SideNavTopTitle'>
           <img className='logo' src={logo} />
-          <i className = "fas fa-bars fa-lg" onClick= {this.toggleNav}></i>
+          <div className='navToggleBox'>
+            <i className = "fas fa-bars fa-lg" onClick= {this.toggleNav}></i>
+          </div>
         </div>
         <SideNavTopLinks/>
         <SideNavFavouritesBox/>

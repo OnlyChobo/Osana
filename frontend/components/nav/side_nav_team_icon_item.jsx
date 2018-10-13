@@ -11,7 +11,7 @@ class SideNavTeamIconItem extends React.Component {
       initial = this.props.teamMember.fname[0] + this.props.teamMember.lname[0];
     }
     return (
-      <div className='ProfileIcon'>
+      <div className=''>
         <div className='smallAvatar'>{initial}</div>
       </div>
     );

@@ -19,18 +19,15 @@ function Modal({modal, closeModal}) {
       component = <SignupFormContainer />;
       break;
     case 'profile':
-      console.log('test');
       component = <ProfileContainer />;
       break;
     case 'addProject':
-      console.log('in here too');
       component = <AddProjectContainer />;
       break;
 
     default:
       return null;
   }
-  console.log(component);
   return (
     <div className="modal" onClick={closeModal}>
       <div className="modal-main" onClick={e => e.stopPropagation()}>

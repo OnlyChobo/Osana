@@ -4,12 +4,12 @@ import merge from 'lodash/merge';
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
-
+  let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       return merge( {}, state, action.payload.users);
     case RECEIVE_TEAM:
-      return merge( {}, state, action.payload.users);
+      return merge( {}, action.payload.users);
     case LOGOUT_CURRENT_USER:
       return {};
     default:

@@ -36,6 +36,10 @@ export const fetchTeam = (id) => $.ajax({
   url: `api/teams/${id}`
 });
 
+export const fetchProject = (id) => $.ajax({
+  url: `api/projects/${id}`
+});
+
 export const createProject = (project) => $.ajax({
   url: 'api/projects',
   method: 'POST',

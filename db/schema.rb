@@ -65,16 +65,16 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
     t.string "name", null: false
     t.integer "order", null: false
     t.text "description"
-    t.integer "user_assigned"
-    t.integer "user_completed"
+    t.integer "user_assigned_id"
+    t.integer "user_completed_id"
     t.date "due_date"
     t.boolean "completed", default: false
     t.bigint "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["section_id"], name: "index_tasks_on_section_id"
-    t.index ["user_assigned"], name: "index_tasks_on_user_assigned"
-    t.index ["user_completed"], name: "index_tasks_on_user_completed"
+    t.index ["user_assigned_id"], name: "index_tasks_on_user_assigned_id"
+    t.index ["user_completed_id"], name: "index_tasks_on_user_completed_id"
   end
 
   create_table "team_memberships", force: :cascade do |t|

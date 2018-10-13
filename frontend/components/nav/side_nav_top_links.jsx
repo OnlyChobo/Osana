@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class SideNavTopLinks extends React.Component {
   constructor(props) {
@@ -8,11 +9,15 @@ class SideNavTopLinks extends React.Component {
   render () {
     return (
       <div className = 'SideNavTopLinks'>
-        <a className = 'SideNavItemRow NavPage' href="#">Home</a>
-        <a className = 'SideNavItemRow NavPage' href="#">My Tasks</a>
+        <Link to={`/teams/${this.props.match.params.teamId}/home`}>
+          <a className = 'SideNavItemRow NavPage' href="#">Home</a>
+        </Link>
+        <Link to={`/teams/${this.props.match.params.teamId}/myTasks`}>
+          <a className = 'SideNavItemRow NavPage' href="#">My Tasks</a>
+        </Link>
       </div>
     );
   }
 }
 
-export default SideNavTopLinks;
+export default withRouter(SideNavTopLinks);

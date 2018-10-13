@@ -1,4 +1,5 @@
 import {RECEIVE_TASKS, RECEIVE_TASK, REMOVE_TASK} from '../actions/task_actions';
+import { RECEIVE_PROJECT } from '../actions/project_actions';
 import merge from 'lodash/merge';
 
 const tasksReducer = (state={}, action) => {
@@ -15,6 +16,8 @@ const tasksReducer = (state={}, action) => {
       newState = merge({}, state);
       delete newState[action.task.id];
       return newState;
+    case RECEIVE_PROJECT:
+      return merge({}, action.payload.tasks);
     default:
       return state;
   }
