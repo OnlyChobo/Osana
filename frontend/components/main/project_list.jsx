@@ -1,5 +1,6 @@
 import React from 'react';
 import AddProjectContainer from './add_project_container';
+import { withRouter } from 'react-router-dom';
 
 class ProjectList extends React.Component {
   constructor (props) {
@@ -34,13 +35,19 @@ class ProjectList extends React.Component {
     );
     let favDisplay;
     let recentDisplay;
+    let teamId = this.props.match.params.teamId;
     if (this.state.favouriteOpen) {
       favDisplay = (
         <div className = 'ProjectList'>
           {this.props.favourites.map(
             project =>
-            <div className='TileStructure' key={project.id}>
-              <div className='ProjectTile-card'></div>
+            <div
+              className='TileStructure'
+              key={project.id}
+              onClick={()=>this.props.history.push(`/teams/${teamId}/projects/${project.id}`)}>
+              <div className='ProjectTile-card'>
+                <i class="far fa-list-alt fa-2x"></i>
+              </div>
               <div className='TileStructure-name'>{project.name}</div>
             </div>
           )}
@@ -53,8 +60,13 @@ class ProjectList extends React.Component {
         <div className = 'ProjectList'>
           {recentProjects.map(
             project =>
-            <div className='TileStructure' key={project.id}>
-              <div className='ProjectTile-card'></div>
+            <div
+              className='TileStructure'
+              key={project.id}
+              onClick={()=>this.props.history.push(`/teams/${teamId}/projects/${project.id}`)}>
+              <div className='ProjectTile-card'>
+                <i class="far fa-list-alt fa-2x"></i>
+              </div>
               <div className='TileStructure-name'>{project.name}</div>
             </div>
           )}
@@ -98,4 +110,4 @@ class ProjectList extends React.Component {
   }
 }
 
-export default ProjectList;
+export default withRouter(ProjectList);

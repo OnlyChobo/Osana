@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import Modal from './modal/modal';
 
 const App = () => (
-  <div>
+  <div className='AppContainer'>
     <Modal />
     <Route path='/' exact component={HomeContainer} />
     <Route path='/teams/:teamId' component={Dashboard} />

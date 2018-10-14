@@ -50,8 +50,9 @@ class Greeting extends React.Component {
     }
     return (
       <div className = 'navBar-top'>
-        <div>
+        <div className = 'navBar-topLeft'>
           {html}
+          <div className='navBar-header'>Home</div>
         </div>
         <div className = 'navBar-topRight'>
           <div>

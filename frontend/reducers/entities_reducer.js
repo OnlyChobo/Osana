@@ -6,6 +6,7 @@ import teamMembershipsReducer from './team_memberships_reducer';
 import teamsReducer from './teams_reducer';
 import sectionsReducer from './sections_reducer';
 import favouritesReducer from './favourites_reducer';
+import commentsReducer from './comments_reducer';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -14,7 +15,8 @@ const entitiesReducer = combineReducers({
   projects: projectsReducer,
   teamMemberships: teamMembershipsReducer,
   teams: teamsReducer,
-  favourites: favouritesReducer
+  favourites: favouritesReducer,
+  comments: commentsReducer
 });
 
 export default entitiesReducer;

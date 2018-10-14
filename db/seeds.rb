@@ -126,3 +126,55 @@ task4 = Task.create(
   user_completed_id: 1,
   section_id: 2
 )
+
+task5 = Task.create(
+  name: 'aeger erah aehre arh earhearh eh earh ',
+  order: 1,
+  description: 'something about task 1',
+  due_date: nil,
+  completed: false,
+  section_id: 1
+)
+
+task6 = Task.create(
+  name: 'ta erhearherah aerh earh earh aerh earh erh earh',
+  order: 2,
+  description: 'something about task 2',
+  due_date: nil,
+  completed: true,
+  section_id: 1
+)
+
+task7 = Task.create(
+  name: 'taerhaerhearh erah aetjstyk tdkty earh erh',
+  order: 3,
+  description: 'something about task 3',
+  section_id: 1
+)
+
+task8 = Task.create(
+  name: 'aeth aeth artj eatjaejae jartjeat hteh aeth eat et t',
+  order: 4,
+  description: 'something about task 3',
+  user_assigned_id: 1,
+  user_completed_id: 1,
+  section_id: 1
+)
+
+comment1 = Comment.create(
+  task_id: 1,
+  user_id: 1,
+  body: 'hello world1'
+)
+
+comment2 = Comment.create(
+  task_id: 1,
+  user_id: 2,
+  body: 'hello world2'
+)
+
+comment3 = Comment.create(
+  task_id: 1,
+  user_id: 1,
+  body: 'hello world3'
+)
