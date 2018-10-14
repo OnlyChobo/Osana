@@ -21,7 +21,11 @@ class SideNavFavouritesHeaderCollapse extends React.Component {
     return (
       <div className = 'SideNavCollapsibleHeader'>
         <div className='SideNavTitles'>
-          <span className='SideNavTitles-name' onClick = {() => this.toggle.bind(this)()}>Favorites</span>
+          <span
+            className='SideNavTitles-name'
+            onClick = {() => this.toggle.bind(this)()}>
+            Favorites
+          </span>
         </div>
         {html}
       </div>
