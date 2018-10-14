@@ -44,7 +44,6 @@
      background-color: white;
      color: #151b26;
      font-size: 13px;
-     /* overflow: hidden; */
      box-sizing: border-box;
  }
 
@@ -113,21 +112,27 @@ body {
   min-width: 250px;
   height: 100%;
   transition: margin-left 250ms ease-out,transform 250ms ease-out;
-  visibility: auto;
   justify-content: center;
   align-items: stretch;
+  padding-bottom: 275px;
+}
+
+.navIcons {
+  margin-right: 8px;
+  color: #9ca6af;
 }
 
 div {
   display: block;
 }
 
- .SideNavTopLinks {
-     color: white;
-     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
-     font-size: 14px;
-     font-weight: 400;
- }
+.SideNavTopLinks {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #222b37;
+}
 
  .SideNavBox a {
      color: white;
@@ -139,29 +144,29 @@ div {
      background-color: transparent;
  }
 
- .SideNavItemRow {
-     align-items: center;
-     display: flex;
-     fill: #9ca6af;
-     height: 28px;
-     justify-content: right;
-     line-height: 28px;
-     padding: 0 10px 0 15px;
-     cursor: pointer;
- }
+.SideNavItemRow {
+  align-items: center;
+  display: flex;
+  fill: #9ca6af;
+  height: 28px;
+  justify-content: right;
+  line-height: 28px;
+  padding: 0 10px 0 15px;
+  cursor: pointer;
+}
 
- .SideNavItems {
-   align-items: center;
-   display: flex;
-   fill: #9ca6af;
-   height: 28px;
-   justify-content: right;
-   line-height: 28px;
-   padding: 0 10px 0 15px;
-   font-size: 13px;
-   font-weight: 400;
-   cursor: pointer;
- }
+.SideNavItems {
+  align-items: center;
+  display: flex;
+  fill: #9ca6af;
+  height: 28px;
+  justify-content: right;
+  line-height: 28px;
+  padding: 0 10px 0 15px;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
 
  .SideNavItemRow-name {
    margin-right: auto;
@@ -178,6 +183,8 @@ div {
    cursor: pointer;
    display: flex;
    margin-right: 10px;
+   justify-content: space-between;
+   align-items: center;
  }
 
 .navToggleBox {
@@ -192,10 +199,14 @@ div {
    border: none;
  }
 
- .fa-chevron-left {
-   color: #b7bfc6;
-   border: none;
- }
+.fa-chevron-left {
+  color: #b7bfc6;
+  border: none;
+}
+
+.fa-chevron-up {
+  color: #646f79
+}
 
 .fa-bars:hover {
    color:#848f99;
@@ -211,13 +222,14 @@ div {
 
  .SideNavTitles-name {
    padding: 5px 15px;
+
  }
 
- .SideNavSection {
-     border-bottom: 1px solid #222b37;
-     padding-bottom: 10px;
-     padding-top: 10px;
- }
+.SideNavSection {
+  border-bottom: 1px solid #222b37;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
  .SideNavMoreLess {
    color: #646f79;
@@ -258,30 +270,28 @@ div {
    margin-right: 4px;
  }
 
- .SideNavTeamTitle {
-   color: #d5dce0;
-   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
-   font-weight: 400;
-   align-items: center;
-   display: flex;
-   height: 28px;
-   padding: 0 10px 0 15px;
-   cursor: pointer;
- }
+.SideNavTeamTitle {
+  color: #d5dce0;
+  font-weight: 400;
+  align-items: center;
+  display: flex;
+  height: 28px;
+  padding: 0 10px 0 15px;
+  cursor: pointer;
+}
 
- .SideNavTeamTitle-name {
-   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
-   font-size: 14px;
-   font-weight: 400;
-   line-height: 20px;
-   color: #e0e6e8;
-   cursor: pointer;
-   margin-right: auto;
-   overflow: hidden;
-   padding-right: 0 5px;
-   text-overflow: ellipsis;
-   white-space: nowrap;
- }
+.SideNavTeamTitle-name {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #e0e6e8;
+  cursor: pointer;
+  margin-right: auto;
+  overflow: hidden;
+  padding-right: 0 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .SideNavTeamInvite {
   align-items: center;
@@ -299,6 +309,39 @@ div {
   margin-right: auto;
   min-width: 111px;
   padding: 0 10px;
+}
+
+.SideNavBottom {
+  padding-top: 50px;
+}
+
+.SideNavTeamInvite-text {
+  font-size: 11px;
+  margin: 15px 30px;
+}
+
+.SideNavTeamInvite-button {
+  display: inline-flex;
+  justify-content: center;
+  background: transparent;
+  fill: #848f99;
+  color: #fff;
+  border: 1px solid #fff;
+  align-items: center;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 9px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 13px;
+  justify-content: center;
+  line-height: 1;
+  min-width: 200px;
+  transition-duration: .2s;
+  transition-property: background, border, box-shadow, color, fill;
 }
 
  .SideNavTeamInvite:hover {
@@ -520,7 +563,6 @@ div {
   flex-direction: column;
   width:100%;
   height:auto;
-  overflow:auto;
 }
 
 .topNavBar-search {
@@ -599,12 +641,25 @@ div {
   cursor: pointer;
 }
 
-.SideNavBottom {
+.SideNavScrollable {
+  box-sizing: border-box;
+  color: #f6f8f9;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
+  text-align: center;
 }
+
+.SideNavBottom {
+  box-sizing: border-box;
+  color: #f6f8f9;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
 
 .invitePeople {
   background: transparent;
@@ -616,7 +671,6 @@ div {
 
 .home-main {
   width: 100%;
-  overflow: auto;
   float: left;
   background-color: white;
 }
@@ -656,10 +710,12 @@ div {
 
 .fas {
   background: transparent;
-  color: #9ca6af;
-  margin-right: 15px;
   align-items: center;
   cursor: pointer;
+}
+
+.fa-bars {
+  margin-right: 15px;
 }
 
 .fa-ellipsis-h:hover {
@@ -979,7 +1035,6 @@ h2 {
   font-weight: 500;
   line-height: 17px;
   max-height: 34px;
-  overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
   width: 100%;
@@ -1416,12 +1471,12 @@ td {
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
 }
 
-.fa-check-circle {
+.taskCheck {
   color: #848f99;
   margin-right: 8px;
 }
 
-.fa-check-circle:hover {
+.taskCheck:hover {
   color: #25e8c8;
 }
 

@@ -26,7 +26,7 @@ class SideNavBox extends React.Component {
     }
     return (
       <div className = {navClass}>
-        <div className = 'SideNavTop'>
+        <div className='SideNavFixed'>
           <div className = 'SideNavTopTitle'>
             <img className='logo' src={logo} />
             <div className='navToggleBox'>
@@ -34,14 +34,18 @@ class SideNavBox extends React.Component {
             </div>
           </div>
           <SideNavTopLinks/>
+        </div>
+        <div className = 'SideNavScrollable'>
           <SideNavFavouritesBox/>
           <SideNavReportsBox/>
           <SideNavTeamBoxContainer/>
-        </div>
-        <div className = 'SideNavBottom'>
-          <img className='invitePeople' src={invitePeople} />
-          <div>Invite your team and start collaborating!</div>
-          <button>Invite to Osana</button>
+          <div className='SideNavBottom'>
+            <div className = 'SideNavSection'>
+              <img className='invitePeople' src={invitePeople} />
+              <div className='SideNavTeamInvite-text'>Invite your team and start collaborating!</div>
+              <div className='SideNavTeamInvite-button'>Invite to Osana</div>
+            </div>
+          </div>
         </div>
       </div>
     );
