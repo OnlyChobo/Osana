@@ -23,9 +23,10 @@ export const closeModal = () => {
   };
 };
 
-export const openCommentPane = () => {
+export const openCommentPane = (id) => {
   return {
-    type: OPEN_COMMENT_PANE
+    type: OPEN_COMMENT_PANE,
+    id
   };
 };
 

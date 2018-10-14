@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  openCommentPane: () => dispatch(openCommentPane()),
+  openCommentPane: (id) => dispatch(openCommentPane(id)),
   closeCommentPane: () => dispatch(closeCommentPane())
 });
 

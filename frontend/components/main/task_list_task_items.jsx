@@ -17,7 +17,7 @@ class TaskListTaskItems extends React.Component {
         className='sectionTaskRow'
         onMouseEnter={() => this.toggleChevron()}
         onMouseLeave={() => this.toggleChevron()}
-        onClick={() => this.props.openCommentPane()}>
+        onClick={() => this.props.openCommentPane(task.id)}>
         <div className='sectionTaskRow-left'>
           <i className="far fa-check-circle fa-lg"></i>
           <div className='taskRow-text'>

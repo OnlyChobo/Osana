@@ -1,18 +1,13 @@
-export const RECEIVE_TASKS = 'RECEIVE_TASKS';
+import * as APIUtil from '../util/api_util';
+
 export const RECEIVE_TASK = 'RECEIVE_TASK';
-export const REMOVE_TASK = 'REMOVE_TASK';
 
-export const receiveTasks = tasks => ({
-  type: RECEIVE_TASKS,
-  tasks
-});
-
-export const receiveTask = task => ({
+export const receiveTask = payload => ({
   type: RECEIVE_TASK,
-  task
+  payload
 });
 
-export const removeTask = task => ({
-  type: REMOVE_TASK,
-  task
-});
+export const fetchTask = (id) => dispatch => (
+  APIUtil.fetchTask(id)
+    .then(payload => dispatch(receiveTask(payload)))
+);

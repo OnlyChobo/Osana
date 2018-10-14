@@ -11,9 +11,7 @@ class SideNavFavouritesItem extends React.Component {
         <svg className='SideNavListIcon' viewBox='0 0 24 24'>
           <circle cx="50%" cy="50%" r="8" fill="#d5dce0" />
         </svg>
-        <Link to={`/teams/${this.props.match.params.teamId}/projects/${this.props.favourite.id}`}>
-          <span className = "SideNavItemRow-name">{this.props.favourite.name}</span>
-        </Link>
+        <span className = "SideNavItemRow-name">{this.props.favourite.name}</span>
       </div>
     );
   }

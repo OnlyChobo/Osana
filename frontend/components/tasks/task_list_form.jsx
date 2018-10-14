@@ -21,7 +21,7 @@ class TaskListForm extends React.Component {
       });
       order ++;
       this.setState({name:"", description:""});
-    }
+    };
   }
 
   handleOnChange(attribute) {
@@ -35,7 +35,7 @@ class TaskListForm extends React.Component {
         <input type='text' value={this.state.description} onChange={this.handleOnChange('description')}/>
         <input type='submit' />
       </form>
-    )
+    );
   }
 }
 

@@ -36,6 +36,7 @@
      line-height: normal;
      text-rendering: optimizeLegibility;
      width: 100%;
+     height: 100%;
  }
 
  body {
@@ -46,6 +47,10 @@
      /* overflow: hidden; */
      box-sizing: border-box;
  }
+
+.AppContainer, #root {
+  height: 100%
+}
 
  .show {
    display: block;
@@ -108,8 +113,9 @@ body {
   min-width: 250px;
   height: 100%;
   transition: margin-left 250ms ease-out,transform 250ms ease-out;
-  height: 100vh;
   visibility: auto;
+  justify-content: center;
+  align-items: stretch;
 }
 
 div {
@@ -154,6 +160,7 @@ div {
    padding: 0 10px 0 15px;
    font-size: 13px;
    font-weight: 400;
+   cursor: pointer;
  }
 
  .SideNavItemRow-name {
@@ -458,6 +465,27 @@ div {
   justify-content: space-between;
   z-index: 200;
   height: 75px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+}
+
+.navBar-topLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navBar-header {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  align-items: center;
+  color: #151b26;
+  display: flex;
+  flex: 0 1 auto;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 10px;
 }
 
 .navBar-top h3 {
@@ -569,6 +597,19 @@ div {
   width: 24px;
   background-color: #4186e0;
   cursor: pointer;
+}
+
+.SideNavBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.invitePeople {
+  background: transparent;
+  width: 100px;
+  height: 34px;
 }
 
 /* Home page */
@@ -907,6 +948,11 @@ h2 {
 .TileStructure:hover {
   background: #f6f8f9;
   transform: translate3d(0, -5px, 0);
+}
+
+.fa-list-alt {
+  color: #fff;
+  background: rgba(246,248,249,0);
 }
 
 .ProjectTile-card {
@@ -1338,17 +1384,19 @@ td {
   justify-content: center;
   background-color: #f6f8f9;
   height: 100%;
+  flex: 1 1 auto;
+  box-sizing: border-box;
 }
 
 .taskContainer > * {
-  margin: 0 5px;
+  margin: 0 8px;
 }
 
 .taskBox {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  max-width: 1000px;
+  flex: 0 1 1000px;
+  min-width: 405px;
   padding: 10px 30px;
   margin-top: 10px;
   background-color: #fff;
@@ -1359,8 +1407,8 @@ td {
 .commentBox {
   display: flex;
   flex-direction: column;
-  width: 40%;
-  max-width: 500px;
+  flex: 0 1 675px;
+  min-width: 495px;
   padding: 10px 30px;
   margin-top: 10px;
   background-color: #fff;
@@ -1375,4 +1423,81 @@ td {
 
 .fa-check-circle:hover {
   color: #25e8c8;
+}
+
+/* comments */
+
+
+.commentBox-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentBox-close {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentBox-assignedDueRow {
+  align-items: center;
+  border-bottom: 1px solid #e0e6e8;
+  display: flex;
+  padding-bottom: 15px;
+}
+
+.commentBox-taskName {
+  display: flex;
+  flex: 1 1 auto;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  min-height: 0;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  margin-bottom: 10px;
+}
+
+.commentBox-tokenButton {
+  background: #fff;
+  border-color: #b7bfc6;
+  color: #646f79;
+  fill: #848f99;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  display: inline-flex;
+  flex: 1 1 auto;
+  min-width: 1px;
+  padding: 3px;
+  padding-right: 10px;
+  position: relative;
+  transition: .2s box-shadow, .2s color;
+  margin-right: 20px;
+}
+
+.commentBox-tokenButton:hover {
+  background-color: #f6f8f9;
+  border-color: #646f79;
+  border-style: solid;
+  color: #222b37;
+  fill: #222b37;
+  cursor: pointer;
+}
+
+.fa-user-circle {
+  margin: 2px 10px 2px 2px;
+  margin-right: 10px;
+}
+
+.fa-calendar {
+  margin: 2px 10px 2px 5px;
+}
+
+.commentBox-descriptionBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e6e8;
 }
