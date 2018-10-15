@@ -46,7 +46,7 @@ class ProjectList extends React.Component {
               key={project.id}
               onClick={()=>this.props.history.push(`/teams/${teamId}/projects/${project.id}`)}>
               <div className='ProjectTile-card'>
-                <i class="far fa-list-alt fa-2x"></i>
+                <i className="far fa-list-alt fa-2x"></i>
               </div>
               <div className='TileStructure-name'>{project.name}</div>
             </div>
@@ -65,7 +65,7 @@ class ProjectList extends React.Component {
               key={project.id}
               onClick={()=>this.props.history.push(`/teams/${teamId}/projects/${project.id}`)}>
               <div className='ProjectTile-card'>
-                <i class="far fa-list-alt fa-2x"></i>
+                <i className="far fa-list-alt fa-2x"></i>
               </div>
               <div className='TileStructure-name'>{project.name}</div>
             </div>

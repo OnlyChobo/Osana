@@ -1,7 +1,7 @@
 import React from 'react';
 import UserDropdownContainer from './user_dropdown_container';
 import AddDropdownContainer from './add_dropdown_container';
-import SearchBarDropdown from './search_bar_dropdown';
+import SearchBarDropdownContainer from './search_bar_dropdown_container';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
@@ -9,36 +9,9 @@ class Greeting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropdownActive: 'none',
-      searchBar: false,
       selectedProjects: [],
       initial: this.props.currentUser.fname[0]+this.props.currentUser.lname[0]
     };
-    this.handleSearch = this.handleSearch.bind(this);
-  }
-
-  handleDropdown(button) {
-    let status = this.state.dropdownActive;
-    if (status !== 'none' && button === status) {
-      this.setState({dropdownActive: 'none'});
-    } else {
-      this.setState({dropdownActive: button});
-    }
-  }
-
-  handleSearchbar() {
-    const {searchBar} = this.state;
-    this.setState({searchBar: !searchBar});
-  }
-
-  handleSearch(e) {
-    const newSelected = [];
-    this.props.projects.forEach( project => {
-      if (e.target.value.length > 0 && project.name.startsWith(e.target.value)) {
-        newSelected.push(project);
-      }
-    });
-    this.setState({selectedProjects: newSelected.slice()});
   }
 
   render () {
@@ -59,19 +32,16 @@ class Greeting extends React.Component {
             <input type='text'
               className='topNavBar-search'
               placeholder='Go to any project or task...'
-              onClick={()=>this.handleSearchbar()}
+              onClick={()=>this.props.openModal('searchBar')}
               onChange={(e) => this.handleSearch(e)}/>
-            { searchBar ? <SearchBarDropdown projects={this.state.selectedProjects} /> : <div></div>}
           </div>
           <div>
-            <a className='topNavBar-addButton' onClick={()=>this.handleDropdown('add')}>+</a>
-            { dropdownActive === 'add' ? <AddDropdownContainer/> : <div></div>}
+            <a className='topNavBar-addButton' onClick={()=>this.props.openModal('addDropdown')}>+</a>
           </div>
           <div>
-            <div className='smallAvatar' onClick={()=>this.handleDropdown('avatar')}>
+            <div className='smallAvatar' onClick={()=>this.props.openModal('userDropdown')}>
               {this.state.initial}
             </div>
-            { dropdownActive === 'avatar' ? <UserDropdownContainer /> : <div></div>}
           </div>
         </div>
       </div>

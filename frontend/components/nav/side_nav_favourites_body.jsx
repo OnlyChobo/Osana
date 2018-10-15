@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import SideNavFavouritesOptions from './side_nav_favourites_options';
-import SideNavFavouritesItem from './side_nav_favourites_item';
+import SideNavFavouritesItemContainer from './side_nav_favourites_item_container';
 import { Link, withRouter } from 'react-router-dom';
 
 class SideNavFavouritesBody extends React.Component {
@@ -13,8 +13,10 @@ class SideNavFavouritesBody extends React.Component {
       <div>
         <div>
           {this.props.favourites.map (favourite =>
-            <Link to={`/teams/${this.props.match.params.teamId}/projects/${favourite.id}`}>
-              <SideNavFavouritesItem key={favourite.id} favourite={favourite}/>
+            <Link
+              key={favourite.id}
+              to={`/teams/${this.props.match.params.teamId}/projects/${favourite.id}`}>
+              <SideNavFavouritesItemContainer favourite={favourite}/>
             </Link>
           )}
         </div>

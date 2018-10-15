@@ -4,7 +4,21 @@ import { withRouter } from 'react-router-dom';
 class SearchBarDropdown extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedProjects: []
+    };
   }
+
+  handleSearch(e) {
+    const newSelected = [];
+    this.props.projects.forEach( project => {
+      if (e.target.value.length > 0 && project.name.startsWith(e.target.value)) {
+        newSelected.push(project);
+      }
+    });
+    this.setState({selectedProjects: newSelected.slice()});
+  }
+
   render () {
     const selected = this.props.projects;
     let dropdownOptions;

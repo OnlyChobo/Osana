@@ -27,3 +27,20 @@ export const getUserInfo = (user) => (
     url: `/api/users/${user.id}`
   })
 );
+
+// export const updateUser = (user) => (
+//   $.ajax({
+//     url: `/api/users/${user.id}`,
+//     method: 'PATCH',
+//     data: {user}
+//   })
+// );
+
+export const updateUser = (user) => {
+  console.log(user);
+  return $.ajax({
+    url: `/api/users/${user.id}`,
+    method: 'PATCH',
+    data: {user}
+  });
+};
