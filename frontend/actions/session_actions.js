@@ -46,3 +46,9 @@ export const getUserInfo = currentUser => dispatch => (
   APIUtil.getUserInfo(currentUser).then(currentUser => (
     dispatch(receiveCurrentUser(currentUser))
 )));
+
+export const updateUser = (user) => dispatch => (
+  APIUtil.updateUser(user).then(currentUser => (
+    dispatch(receiveCurrentUser(currentUser))
+  ))
+);

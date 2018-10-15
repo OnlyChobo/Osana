@@ -43,8 +43,8 @@ export const createTeamMembership = (membership) => dispatch => (
 //   )
 // );
 
-// export const deleteTeamMembership = (id) => dispatch => (
-//   APIUtil.deleteTeamMembership(id).then(
-//     teamMembership => dispatch(removeTeamMemberships(id))
-//   )
-// );
+export const deleteTeamMembership = (id) => dispatch => (
+  APIUtil.deleteTeamMembership(id).then(
+    teamMembership => dispatch(removeTeamMembership(id))
+  )
+);

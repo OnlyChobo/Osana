@@ -8,19 +8,6 @@ class Api::TeamMembershipsController < ApplicationController
     end
   end
 
-  def update
-    @team_membership = TeamMembership.new(team_membership_params)
-    if @team_membership
-      if @team_membership.save
-        render :show
-      else
-        render json: ['error'], status: 422
-      end
-    else
-      render json: @team_membership.errors.full_messages, status: 422
-    end
-  end
-
   def destroy
     @team_membership = TeamMembership.find(params[:id])
     @team_membership.destroy
@@ -30,11 +17,6 @@ class Api::TeamMembershipsController < ApplicationController
   def show
     @team_membership = TeamMembership.find(params[:id])
   end
-
-  def index
-    @team_memberships = TeamMembership.all
-  end
-
 
   private
 

@@ -6,37 +6,34 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      role: '',
-      department: '',
-      pronouns: '',
-      about_me: '',
-      vacation_indicator: false
+      id: this.props.currentUserId,
+      role: this.props.currentUser.role || '',
+      department: this.props.currentUser.department || '',
+      pronoun: this.props.currentUser.pronoun || '',
+      about_me: this.props.currentUser.aboutMe || '',
+      vacation_ind: this.props.currentUser.vacationInd || false
     };
-    this.submitInput = this.submitInput.bind(this);
-  }
-  submitInput(e) {
-    e.preventDefault();
-    const newState = this.state;
-    newState.team_id = this.props.match.params.teamId;
-    this.props.createProject(newState).then(
-      data => {
-        this.setState({email: '', password: ''});
-        this.props.closeModal();
-      }
-    );
   }
 
   handleToggle() {
-    return e => this.setState({vacation_indicator: !this.state.vacation_indicator});
+    return e => this.setState({vacation_ind: !this.state.vacation_ind});
   }
 
   handleInput(property) {
     return e => this.setState({[property]: e.target.value});
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.updateUser(this.state).then(
+      this.props.closeModal()
+    );
+  }
+
   render() {
     let outer_switch = 'switch';
     let inner_switch = 'switch-view';
-    if (this.state.vacation_indicator) {
+    if (this.state.vacation_ind) {
       outer_switch += ' checked';
       inner_switch += ' view-checked';
     }
@@ -90,8 +87,8 @@ class Profile extends React.Component {
                   className = 'profile-input'
                   type = 'text'
                   placeholder = 'Third-person pronouns (e.g. she/her/hers)'
-                  value = { this.state.pronouns }
-                  onChange = {this.handleInput('pronouns')}
+                  value = { this.state.pronoun }
+                  onChange = {this.handleInput('pronoun')}
                 />
             </td>
             </tr>
@@ -127,7 +124,7 @@ class Profile extends React.Component {
               </td>
             </tr>
             <div className = 'addProject-buttonContainer'>
-              <input className = 'button addProject-button' type='submit' value='Update Profile'/>
+              <input className = 'button addProject-button' type='submit' value='Update Profile' onClick={e => this.handleSubmit(e)}/>
             </div>
           </table>
         </form>

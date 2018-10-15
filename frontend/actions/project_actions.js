@@ -28,3 +28,8 @@ export const createProject = project => dispatch => (
   APIUtil.createProject(project)
     .then(project => dispatch(receiveProject(project)))
 );
+
+export const deleteProject = (id) => dispatch => (
+  APIUtil.deleteProject(id).then(
+    project => dispatch(removeProject(id))
+  ));

@@ -5,6 +5,11 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import AddProjectContainer from '../main/add_project_container';
 import ProfileContainer from '../main/profile_container';
+import UserDropdownContainer from '../greeting/user_dropdown_container';
+import AddDropdownContainer from '../greeting/add_dropdown_container';
+import SearchBarDropdownContainer from '../greeting/search_bar_dropdown_container';
+import SelectProjectContainer from '../main/select_project_container';
+import SelectFavouriteContainer from '../main/select_favourite_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -24,7 +29,21 @@ function Modal({modal, closeModal}) {
     case 'addProject':
       component = <AddProjectContainer />;
       break;
-
+    case 'searchBar':
+      component = <SearchBarDropdownContainer />;
+      break;
+    case 'userDropdown':
+      component = <UserDropdownContainer />;
+      break;
+    case 'addDropdown':
+      component = <AddDropdownContainer />;
+      break;
+    case 'projectOptions':
+      component = <SelectProjectContainer />;
+      break;
+    case 'favouriteOptions':
+      component = <SelectFavouriteContainer />;
+      break;
     default:
       return null;
   }

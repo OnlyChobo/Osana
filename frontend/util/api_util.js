@@ -23,14 +23,15 @@ export const updateTeamMemberships = (teamMembership) => $.ajax({
   data: {teamMembership}
 });
 
-export const deleteTeamMemberships = (id) => $.ajax({
+export const deleteTeamMembership = (id) => $.ajax({
   url: `api/team_memberships/${id}`,
   method: 'DELETE'
 });
 
-// export const fetchTeams = () => $.ajax({
-//   url: `api/teams`
-// });
+export const deleteProject = (id) => $.ajax({
+  url: `api/projects/${id}`,
+  method: 'DELETE'
+});
 
 export const fetchTeam = (id) => $.ajax({
   url: `api/teams/${id}`
