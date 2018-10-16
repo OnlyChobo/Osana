@@ -13,8 +13,11 @@ class Api::TasksController < ApplicationController
   end
 
   def index
-    p task_params
-    @tasks = Task.where(task_params)
+    if task_params.empty?
+      @tasks = Task.all
+    else
+      @tasks = Task.where(task_params)
+    end
   end
 
   private

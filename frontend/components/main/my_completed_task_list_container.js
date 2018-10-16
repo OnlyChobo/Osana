@@ -8,8 +8,8 @@ import { openCommentPane, setHeader } from '../../actions/ui_actions';
 const mapStateToProps = state => ({
   tasks: Object.values(state.entities.tasks),
   commentPane: state.ui.commentPane,
-  filter: { user_assigned_id: state.session.id },
-  header: 'My Tasks'
+  filter: { user_completed_id: state.session.id, completed: true },
+  header: 'Recently Completed Tasks'
 });
 
 const mapDispatchToProps = dispatch => ({

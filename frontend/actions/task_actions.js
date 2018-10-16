@@ -8,6 +8,11 @@ export const receiveTask = payload => ({
   payload
 });
 
+export const receiveTasks = payload => ({
+  type: RECEIVE_TASKS,
+  payload
+});
+
 export const fetchTask = (id) => dispatch => (
   APIUtil.fetchTask(id)
     .then(payload => dispatch(receiveTask(payload)))
@@ -15,5 +20,5 @@ export const fetchTask = (id) => dispatch => (
 
 export const fetchTasks = (data) => dispatch => (
   APIUtil.fetchTasks(data)
-    .then(payload => console.log(payload))
+    .then(payload => dispatch(receiveTasks(payload)))
 );

@@ -8,6 +8,8 @@ const tasksReducer = (state={}, action) => {
   switch(action.type) {
     case RECEIVE_PROJECT:
       return merge({}, action.payload.tasks);
+    case RECEIVE_TASKS:
+      return merge({}, action.payload);
     default:
       return state;
   }

@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   tasks: Object.values(state.entities.tasks),
   commentPane: state.ui.commentPane,
   filter: { user_assigned_id: state.session.id },
-  header: 'My Tasks'
+  header: "Tasks I've Created"
 });
 
 const mapDispatchToProps = dispatch => ({

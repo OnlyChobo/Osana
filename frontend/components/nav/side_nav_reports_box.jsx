@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import SideNavReportsItem from './side_nav_reports_item';
 
 class SideNavReportsBox extends React.Component {
@@ -16,9 +17,15 @@ class SideNavReportsBox extends React.Component {
     if (this.state.open) {
       html = (
         <div>
-          <SideNavReportsItem name="Tasks I've Created" />
-          <SideNavReportsItem name="Tasks I've Assigned to Others" />
-          <SideNavReportsItem name="Recently Completed Tasks" />
+          <Link to={`/teams/${this.props.match.params.teamId}/tasksCreated`}>
+            <SideNavReportsItem name="Tasks I've Created" />
+          </Link>
+          <Link to={`/teams/${this.props.match.params.teamId}/tasksAssigned`}>
+            <SideNavReportsItem name="Tasks I've Assigned to Others" />
+          </Link>
+          <Link to={`/teams/${this.props.match.params.teamId}/tasksCompleted`}>
+            <SideNavReportsItem name="Recently Completed Tasks" />
+          </Link>
         </div>
       );
     }
@@ -33,4 +40,4 @@ class SideNavReportsBox extends React.Component {
   }
 }
 
-export default SideNavReportsBox;
+export default withRouter(SideNavReportsBox);

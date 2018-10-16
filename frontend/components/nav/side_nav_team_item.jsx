@@ -29,18 +29,16 @@ class SideNavTeamItem extends React.Component {
           <circle cx="50%" cy="50%" r="8" fill="white" />
         </svg>
         <span className = "SideNavItemRow-name">{this.props.project.name}</span>
-        <button onBlur = {() => this.props.closeModal()}>
-          {(this.state.show) ?
-            <i
-              className="fas fa-ellipsis-h"
-              onClick={e =>
-                {
-                  e.stopPropagation();
-                  this.props.openModal('projectOptions');
-                  this.props.selectProject(this.props.project);
-                }}></i> :
-            <div></div>}
-          </button>
+        {(this.state.show) ?
+          <i
+            className="fas fa-ellipsis-h"
+            onClick={e =>
+              {
+                e.stopPropagation();
+                this.props.openModal('projectOptions');
+                this.props.selectProject(this.props.project);
+              }}></i> :
+          <div></div>}
           {(this.props.modal === 'projectOptions' && ""+this.props.project.id == this.props.currentProjectId) ? <SelectProjectContainer /> : null}
       </div>
     );

@@ -15,8 +15,8 @@ class SideNavFavouritesOptions extends React.Component {
     if (this.state.open) {
       html = (
         <div>
-          <span className = "SideNavItems NavPage"><a href = "#">All Items</a></span>
-          <span className = "SideNavItems NavPage"><a href = "#">Delete Items</a></span>
+          <span className = "SideNavItems NavPage"><a>All Items</a></span>
+          <span className = "SideNavItems NavPage"><a>Delete Items</a></span>
           <div className = 'SideNavMoreLess' onClick = {() => this.toggle()}>
             <span className = 'SideNavMoreLess-name'>Show less</span>
           </div>
