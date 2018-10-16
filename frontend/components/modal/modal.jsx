@@ -38,9 +38,6 @@ function Modal({modal, closeModal}) {
     case 'addDropdown':
       component = <AddDropdownContainer />;
       break;
-    case 'projectOptions':
-      component = <SelectProjectContainer />;
-      break;
     case 'favouriteOptions':
       component = <SelectFavouriteContainer />;
       break;

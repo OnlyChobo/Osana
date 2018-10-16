@@ -28,6 +28,17 @@ export const deleteTeamMembership = (id) => $.ajax({
   method: 'DELETE'
 });
 
+export const createFavourite = (favourite) => $.ajax({
+  url: `api/favourites`,
+  method: 'POST',
+  data: {favourite}
+});
+
+export const deleteFavourite = (id) => $.ajax({
+  url: `api/favourites/${id}`,
+  method: 'DELETE'
+});
+
 export const deleteProject = (id) => $.ajax({
   url: `api/projects/${id}`,
   method: 'DELETE'
@@ -45,19 +56,13 @@ export const fetchTask = (id) => $.ajax({
   url: `api/tasks/${id}`
 });
 
+export const fetchTasks = (task) => $.ajax({
+  url: `api/tasks`,
+  data: {task}
+});
+
 export const createProject = (project) => $.ajax({
   url: 'api/projects',
   method: 'POST',
   data: {project}
 });
-//
-// export const updateTeams = (team) => $.ajax({
-//   url: 'api/teams',
-//   method: 'PATCH',
-//   data: {team}
-// });
-//
-// export const deleteTeams = (id) => $.ajax({
-//   url: `api/teams/${id}`,
-//   method: 'DELETE'
-// });

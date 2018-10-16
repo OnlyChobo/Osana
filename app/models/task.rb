@@ -19,7 +19,8 @@ class Task < ApplicationRecord
   validates :name, :order, :section_id, presence: true
 
   belongs_to :section
-  has_many :comments
+  has_many :comments,
+  dependent: :delete_all
 
   belongs_to :user_assigned,
   foreign_key: :user_assigned,

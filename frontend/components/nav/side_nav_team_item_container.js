@@ -1,9 +1,17 @@
 import { connect } from 'react-redux';
 import SideNavTeamItem from './side_nav_team_item';
-import { openModal } from '../../actions/ui_actions';
+import { openModal, closeModal } from '../../actions/ui_actions';
+import { selectProject } from '../../actions/ui_actions';
 
-const mapDispatchToProps = (dispatch) => ({
-  openModal: modal => dispatch(openModal(modal))
+const mapStateToProps = state => ({
+  modal: state.ui.modal,
+  currentProjectId: state.session.projectId
 });
 
-export default connect(null, mapDispatchToProps)(SideNavTeamItem);
+const mapDispatchToProps = (dispatch) => ({
+  openModal: modal => dispatch(openModal(modal)),
+  closeModal: modal => dispatch(closeModal(modal)),
+  selectProject: project => dispatch(selectProject(project))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideNavTeamItem);

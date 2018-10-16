@@ -11,7 +11,7 @@ class Api::TeamMembershipsController < ApplicationController
   def destroy
     @team_membership = TeamMembership.find(params[:id])
     @team_membership.destroy
-    @team_membership
+    render json: @team_membership
   end
 
   def show

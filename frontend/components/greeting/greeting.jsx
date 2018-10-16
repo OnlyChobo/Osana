@@ -25,7 +25,7 @@ class Greeting extends React.Component {
       <div className = 'navBar-top'>
         <div className = 'navBar-topLeft'>
           {html}
-          <div className='navBar-header'>Home</div>
+          <div className='navBar-header'>{this.props.header}</div>
         </div>
         <div className = 'navBar-topRight'>
           <div>

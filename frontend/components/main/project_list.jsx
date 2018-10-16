@@ -13,6 +13,7 @@ class ProjectList extends React.Component {
   }
   componentDidMount() {
     this.props.fetchTeam(this.props.match.params.teamId);
+    this.props.setHeader('Home');
   }
 
   componentWillReceiveProps(nextProps) {
