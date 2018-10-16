@@ -13,11 +13,7 @@ class SideNavFavouritesBody extends React.Component {
       <div>
         <div>
           {this.props.favourites.map (favourite =>
-            <Link
-              key={favourite.id}
-              to={`/teams/${this.props.match.params.teamId}/projects/${favourite.id}`}>
-              <SideNavFavouritesItemContainer favourite={favourite}/>
-            </Link>
+            <SideNavFavouritesItemContainer key={favourite.id} favourite={favourite}/>
           )}
         </div>
         <SideNavFavouritesOptions/>

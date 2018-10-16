@@ -14,9 +14,9 @@ export const receiveTeamMembership = teamMembership => ({
   teamMembership
 });
 
-export const removeTeamMembership = id => ({
+export const removeTeamMembership = teamMembership => ({
   type: REMOVE_TEAM_MEMBERSHIP,
-  id
+  teamMembership
 });
 
 export const fetchTeamMemberships = () => dispatch => (
@@ -37,14 +37,8 @@ export const createTeamMembership = (membership) => dispatch => (
   )
 );
 
-// export const updateTeamMembership = (membership) => dispatch => (
-//   APIUtil.updateTeamMembership(membership).then(
-//     teamMembership => dispatch(receiveTeamMemberships(teamMemberships))
-//   )
-// );
-
 export const deleteTeamMembership = (id) => dispatch => (
   APIUtil.deleteTeamMembership(id).then(
-    teamMembership => dispatch(removeTeamMembership(id))
+    teamMembership => dispatch(removeTeamMembership(teamMembership))
   )
 );

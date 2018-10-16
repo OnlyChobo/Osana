@@ -20,7 +20,7 @@ class Api::ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    @project
+    render json: @project
   end
 
   private

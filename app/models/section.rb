@@ -14,5 +14,7 @@ class Section < ApplicationRecord
   validates :project_id, :order, presence: true
 
   belongs_to :project
-  has_many :tasks
+
+  has_many :tasks,
+  dependent: :destroy
 end

@@ -13,7 +13,8 @@ class Api::TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all
+    p task_params
+    @tasks = Task.where(task_params)
   end
 
   private
@@ -23,8 +24,8 @@ class Api::TasksController < ApplicationController
       :name,
       :order,
       :description,
-      :user_assigned,
-      :user_completed,
+      :user_assigned_id,
+      :user_completed_id,
       :due_date,
       :completed,
       :section_id

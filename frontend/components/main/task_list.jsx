@@ -12,7 +12,10 @@ class TaskList extends React.Component {
   }
   componentDidMount() {
     this.props.fetchProject(this.props.match.params.projectId).then(
-      () => this.sortSections()
+      () => {
+        this.sortSections();
+        this.props.setHeader(this.props.projects[this.props.match.params.projectId].name);
+      }
     );
 
   }
@@ -20,7 +23,10 @@ class TaskList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
       this.props.fetchProject(nextProps.match.params.projectId).then(
-        () => this.sortSections()
+        () => {
+          this.sortSections();
+          this.props.setHeader(this.props.projects[this.props.match.params.projectId].name);
+        }
       );
     }
   }

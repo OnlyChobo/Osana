@@ -14,9 +14,20 @@ class Project < ApplicationRecord
   validates :name, :team_id, presence: true
 
   belongs_to :team
-  has_many :favourites
-  has_many :sections
+
+  has_many :favourites,
+  dependent: :destroy
+
+  has_many :sections,
+  dependent: :destroy
+
   has_many :tasks,
   through: :sections,
-  source: :tasks
+  source: :tasks,
+  dependent: :destroy
+
+  has_many :comments,
+  through: :tasks,
+  source: :comments,
+  dependent: :destroy
 end

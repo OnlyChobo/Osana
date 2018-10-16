@@ -31,5 +31,5 @@ export const createProject = project => dispatch => (
 
 export const deleteProject = (id) => dispatch => (
   APIUtil.deleteProject(id).then(
-    project => dispatch(removeProject(id))
+    project => dispatch(removeProject(project))
   ));

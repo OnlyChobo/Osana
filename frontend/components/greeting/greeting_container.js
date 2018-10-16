@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
   currentUser: state.entities.users[state.session.id] || {id: null},
   teams: Object.values(state.entities.teams),
   projects: Object.values(state.entities.projects),
-  leftNavStatus: state.ui.navBar
+  leftNavStatus: state.ui.navBar,
+  header: state.ui.header
 });
 
 const mapDispatchToProps = (dispatch) => ({
