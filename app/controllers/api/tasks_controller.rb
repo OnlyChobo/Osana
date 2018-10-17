@@ -1,6 +1,7 @@
 class Api::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
+    p @task
     if @task.save
       render :show
     else

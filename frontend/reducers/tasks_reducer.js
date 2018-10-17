@@ -4,12 +4,13 @@ import merge from 'lodash/merge';
 
 const tasksReducer = (state={}, action) => {
   Object.freeze(state);
-  let newState = {};
   switch(action.type) {
     case RECEIVE_PROJECT:
       return merge({}, action.payload.tasks);
     case RECEIVE_TASKS:
       return merge({}, action.payload);
+    case RECEIVE_TASK:
+      return merge({}, state, action.payload.task);
     default:
       return state;
   }

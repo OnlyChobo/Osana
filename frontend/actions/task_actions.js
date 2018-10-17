@@ -18,6 +18,11 @@ export const fetchTask = (id) => dispatch => (
     .then(payload => dispatch(receiveTask(payload)))
 );
 
+export const createTask = (task) => dispatch => (
+  APIUtil.createTask(task)
+    .then(payload => dispatch(receiveTask(payload)))
+);
+
 export const fetchTasks = (data) => dispatch => (
   APIUtil.fetchTasks(data)
     .then(payload => dispatch(receiveTasks(payload)))

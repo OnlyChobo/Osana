@@ -4,7 +4,7 @@ class SelectFavourite extends React.Component {
 
   render () {
     return (
-      <div className="user-dd-wrapper">
+      <div className="user-dd-wrapper" style={{top: `${this.props.top + this.props.height+10}px`, left: `${this.props.left}px`}}>
         <ul className="user-dd-list">
           <li
             className="user-dd-team-list-item"

@@ -10,7 +10,7 @@ class UserDropdown extends React.Component {
 
   render () {
     return (
-      <div className="user-dd-wrapper">
+      <div className="user-dd-wrapper" style={{top: `${this.props.top + this.props.height+10}px`, right: '10px'}}>
         <ul className="user-dd-list">
           {this.props.teams.map (
             team =>

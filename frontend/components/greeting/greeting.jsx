@@ -31,15 +31,35 @@ class Greeting extends React.Component {
           <div>
             <input type='text'
               className='topNavBar-search'
+              id='searchBar'
               placeholder='Go to any project or task...'
-              onClick={()=>this.props.openModal('searchBar')}
-              onChange={(e) => this.handleSearch(e)}/>
+              onClick={()=> {
+                setTimeout(()=>{
+                  this.props.setModalPositions(document.getElementById('searchBar'));
+                  this.props.openModal('searchBar');
+                }, 150);
+
+              }}/>
           </div>
           <div>
-            <a className='topNavBar-addButton' onClick={()=>this.props.openModal('addDropdown')}>+</a>
+            <a
+              className='topNavBar-addButton'
+              id='addButton'
+              onClick={() => {
+                this.props.openModal('addDropdown');
+                this.props.setModalPositions(document.getElementById('addButton'));
+              }}>
+              +
+            </a>
           </div>
           <div>
-            <div className='smallAvatar' onClick={()=>this.props.openModal('userDropdown')}>
+            <div
+              className='smallAvatar'
+              id='smallAvatar'
+              onClick={() => {
+                this.props.openModal('userDropdown');
+                this.props.setModalPositions(document.getElementById('smallAvatar'));
+              }}>
               {this.state.initial}
             </div>
           </div>

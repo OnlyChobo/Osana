@@ -7,6 +7,7 @@ export const OPEN_DROPDOWN = 'OPEN_DROPDOWN';
 export const CLOSE_DROPDOWN = 'CLOSE_DROPDOWN';
 export const SELECT_PROJECT = 'SELECT_PROJECT';
 export const SET_HEADER = 'SET_HEADER';
+export const SET_MODAL_POSITIONS = 'SET_MODAL_POSITIONS';
 
 export const toggleLeftNav = () => ({
   type: TOGGLE_LEFT_NAV
@@ -68,5 +69,12 @@ export const setHeader = header => {
   return {
     type: SET_HEADER,
     header
+  };
+};
+
+export const setModalPositions = element => {
+  return {
+    type: SET_MODAL_POSITIONS,
+    element
   };
 };

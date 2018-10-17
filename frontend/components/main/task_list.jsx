@@ -7,7 +7,9 @@ class TaskList extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      sortedSections: []
+      sortedSections: [],
+      show: false,
+      sectionName: 'New Section'
     };
   }
   componentDidMount() {
@@ -40,21 +42,51 @@ class TaskList extends React.Component {
     return sortBy(tasks, ['order']);
   }
 
-  render() {
+  handleChange () {
+    return e => this.setState({sectionName: e.target.value});
+  }
 
+  handleSubmit () {
+    return e => {
+      if (e.key === 'Enter') {
+        this.props.createSection({
+          name: this.state.sectionName,
+          order: this.props.last_section.order+1,
+          project_id: this.props.match.params.projectId
+        });
+        this.setState({show: false});
+      }
+    };
+  }
+
+  render() {
+    let section = this.state.show ? (
+      <div className='newSection-container'>
+        <div className='sectionTaskRow'>
+          <input
+            type='text'
+            className='newSection'
+            value={this.state.sectionName}
+            onChange={this.handleChange()}
+            onKeyPress={this.handleSubmit()} />
+        </div>
+      </div> ) : null;
     return (
       <div className='taskContainer'>
         <div className='taskBox'>
           <div className='SectionTaskHeader'>
             <input
               className = 'button addTask-button'
+              onClick = {() => this.props.openModal('addTask')}
               type='submit'
               value='Add Task'/>
             <input
               className = 'button addTask-button addTask-button-white'
+              onClick = {() => this.setState({show: true})}
               type='submit'
               value='Add Section'/>
           </div>
+          {section}
           {this.props.sections.map(section =>
             <div key={section.id}>
               <div className='sectionTaskRow'>
@@ -67,7 +99,6 @@ class TaskList extends React.Component {
           )}
         </div>
         {this.props.commentPane ? <div className='commentBox'><CommentListContainer /></div> : <div></div>}
-
       </div>
     );
   }

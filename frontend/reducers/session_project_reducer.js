@@ -1,4 +1,4 @@
-import { SELECT_PROJECT, UNSELECT_PROJECT } from '../actions/ui_actions';
+import { SELECT_PROJECT } from '../actions/ui_actions';
 import merge from 'lodash/merge';
 
 const sessionProjectReducer = (state = null, action) => {
@@ -6,8 +6,6 @@ const sessionProjectReducer = (state = null, action) => {
   switch(action.type) {
     case SELECT_PROJECT:
       return "" + action.project.id;
-    case UNSELECT_PROJECT:
-      return null;
     default:
       return state;
   }

@@ -28,9 +28,11 @@ class SideNavFavouritesItem extends React.Component {
         {(this.state.show) ?
           <i
             className="fas fa-ellipsis-h"
+            id={`favourite${this.props.favourite.id}`}
             onClick={e =>
               {
                 e.stopPropagation();
+                this.props.setModalPositions(document.getElementById(`favourite${this.props.favourite.id}`));
                 this.props.openModal('favouriteOptions');
                 this.props.selectProject(this.props.favourite);
               }}></i> :

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SearchBarDropdown extends React.Component {
   constructor(props) {
@@ -20,20 +20,32 @@ class SearchBarDropdown extends React.Component {
   }
 
   render () {
-    const selected = this.props.projects;
+    const selected = this.state.selectedProjects;
     let dropdownOptions;
     if (selected.length > 0) {
       dropdownOptions = (
-        <ul className="user-search-dd-list">
+        <ul className="user-search-dd-list" style={{top: `${this.props.top + this.props.height+3}px`, left: `${this.props.left}px`}}>
           {selected.map( project => <li key={project.id} className="user-search-dd-list-item">{project.name}</li>)}
         </ul>
       );
     } else {
       dropdownOptions = (
-        <ul className="user-search-dd-list">
-          <li className="user-search-dd-list-item">Tasks I've Created</li>
-          <li className="user-search-dd-list-item">Tasks I've Assigned to Others</li>
-          <li className="user-search-dd-list-item">Recently Completed Tasks</li>
+        <ul className="user-search-dd-list" style={{top: `${this.props.top + this.props.height+3}px`, left: `${this.props.left}px`}}>
+          <Link to={`/teams/${this.props.match.params.teamId}/tasksCreated`}>
+            <li className="user-search-dd-list-item" onClick = {() => this.props.closeModal()}>
+              Tasks I've Created
+            </li>
+          </Link>
+          <Link to={`/teams/${this.props.match.params.teamId}/tasksAssigned`}>
+            <li className="user-search-dd-list-item" onClick = {() => this.props.closeModal()}>
+              Tasks I've Assigned to Others
+            </li>
+          </Link>
+          <Link to={`/teams/${this.props.match.params.teamId}/tasksCompleted`}>
+            <li className="user-search-dd-list-item" onClick = {() => this.props.closeModal()}>
+              Recently Completed Tasks
+            </li>
+          </Link>
         </ul>
       );
     }
