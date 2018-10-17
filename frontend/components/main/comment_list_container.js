@@ -6,6 +6,7 @@ import { fetchTask } from '../../actions/task_actions';
 
 const mapStateToProps = state => ({
   comments: Object.values(state.entities.comments),
+  users: state.entities.users,
   task: state.entities.tasks[state.session.taskId],
   taskId: state.session.taskId
 });

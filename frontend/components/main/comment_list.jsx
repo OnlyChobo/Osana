@@ -1,5 +1,6 @@
 import React from 'react';
 import { sortBy } from 'lodash';
+import CommentListItemContainer from './comment_list_item_container';
 
 class CommentList extends React.Component {
   constructor (props) {
@@ -24,29 +25,37 @@ class CommentList extends React.Component {
 
     return (
       <div className='commentBox-container'>
-        <div className='commentBox-close'>
-          <i onClick={this.props.closeCommentPane} className="fas fa-times"></i>
-        </div>
-        <div className='commentBox-taskName'>
-          {this.props.task.name}
-        </div>
-        <div className='commentBox-assignedDueRow'>
-          <div className=''>
-            <div className='commentBox-tokenButton'>
-              <i class="far fa-user-circle fa-2x"></i>
-              Unassigned
-            </div>
-            <div className='commentBox-tokenButton'>
-              <i class="far fa-calendar fa-2x"></i>
-              Due Date
+        <div>
+          <div className='commentBox-close'>
+            <i onClick={this.props.closeCommentPane} className="modal-close-button fas fa-times"></i>
+          </div>
+          <div className='commentBox-taskName'>
+            {this.props.task.name}
+          </div>
+          <div className='commentBox-assignedDueRow'>
+            <div className=''>
+              <div className='commentBox-tokenButton'>
+                <i className="far fa-user-circle fa-2x"></i>
+                Unassigned
+              </div>
+              <div className='commentBox-tokenButton'>
+                <i className="far fa-calendar fa-2x"></i>
+                Due Date
+              </div>
             </div>
           </div>
+          <div className='commentBox-descriptionBox'>
+            <i className="fas fa-align-left fa-lg"></i>
+            {this.props.task.description}
+          </div>
+          {this.props.comments.map(comment =>
+            <CommentListItemContainer
+              key={comment.id}
+              comment={comment}
+              user={this.props.users[comment.userId]} />
+          )}
         </div>
-        <div className='commentBox-descriptionBox'>
-          <i class="fas fa-align-left fa-lg"></i>
-          {this.props.task.description}
-        </div>
-        {this.props.comments.map(comment => comment.body)}
+        <textarea />
       </div>
     );
   }

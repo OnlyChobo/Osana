@@ -1610,8 +1610,64 @@ td {
 .commentBox-descriptionBox {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e0e6e8;
+}
+
+.fa-align-left {
+  color: #848f99;
+  margin: 10px;
+}
+
+
+
+.commentContainer {
+  padding: 15px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid;
+  border-color: #e0e6e8;
+  border-width: 1px;
+}
+
+.profileIconContainer {
+  margin-right: 10px;
+}
+
+.commentRightContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  line-height: 20px;
+  min-width: 1px;
+  word-wrap: break-word;
+}
+
+.commentTopContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.username {
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.commentTimestamp {
+  color: #9ca6af;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.commentBottomContainer {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
