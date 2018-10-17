@@ -317,6 +317,7 @@ div {
   margin-right: auto;
   min-width: 111px;
   padding: 0 10px;
+  cursor: pointer;
 }
 
 .SideNavBottom {
@@ -569,9 +570,8 @@ div {
 .body-content {
   display: flex;
   flex-direction: column;
-  width:100%;
-  height:auto;
-  overflow: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .topNavBar-search {
@@ -1528,6 +1528,7 @@ td {
   background-color: #fff;
   border-radius: 4px 4px 0 0;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+
 }
 
 .taskCheck {
@@ -1545,6 +1546,8 @@ td {
 .commentBox-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .commentBox-close {
@@ -1621,7 +1624,15 @@ td {
   margin: 10px;
 }
 
+.commentBox-scrollable {
+  overflow-y: scroll;
+  height: 100%;
+}
 
+.commentBox-scrollable::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
 
 .commentContainer {
   padding: 15px 28px;
@@ -1670,4 +1681,30 @@ td {
   line-height: 20px;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+.addCommentBoxContainer {
+  display: flex;
+  padding: 10px 28px;
+  max-height: 30vh;
+  transition: min-height 250ms;
+  min-height: 80px;
+}
+
+.commentComposer {
+  width: 90%;
+  padding: 10px 10px;
+  outline: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  border: 1px solid #d5dce0;
+  border-radius: 4px;
+  resize: none;
+  overflow: hidden;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  margin-left: 10px;
+  margin-right: 10px;
+  flex: 1 1 auto;
 }

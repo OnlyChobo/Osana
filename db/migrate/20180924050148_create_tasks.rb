@@ -6,6 +6,8 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.text :description
       t.integer :user_assigned_id
       t.integer :user_completed_id
+      t.integer :user_assigner_id
+      t.integer :user_created_id
       t.date :due_date
       t.boolean :completed, default: false
       t.references :section, foreign_key: true
@@ -14,5 +16,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
     end
     add_index :tasks, :user_assigned_id
     add_index :tasks, :user_completed_id
+    add_index :tasks, :user_assigner_id
+    add_index :tasks, :user_created_id
   end
 end

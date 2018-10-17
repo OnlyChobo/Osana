@@ -161,6 +161,19 @@ task8 = Task.create(
   section_id: 1
 )
 
+task9 = Task.create(
+  name: 'aeth aeth artj eatjaejae jartjeat hteh aeth eat et t',
+  order: 5,
+  description: 'something about task 3',
+  user_assigned_id: 1,
+  user_completed_id: 1,
+  user_created_id: 2,
+  user_assigner_id: 1,
+  due_date: '2014-12-01',
+  section_id: 1
+)
+
+
 comment1 = Comment.create(
   task_id: 1,
   user_id: 1,

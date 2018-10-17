@@ -13,6 +13,13 @@ class Api::TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def update
+    @task = Task.find(params[:id])
+    if @task.update_attributes(task_params)
+      render :show
+    end
+  end
+
   def index
     if task_params.empty?
       @tasks = Task.all
@@ -30,6 +37,8 @@ class Api::TasksController < ApplicationController
       :description,
       :user_assigned_id,
       :user_completed_id,
+      :user_assigner_id,
+      :user_created_id,
       :due_date,
       :completed,
       :section_id

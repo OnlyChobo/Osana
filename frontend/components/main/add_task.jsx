@@ -8,15 +8,17 @@ class AddTask extends React.Component {
     this.state = {
       name: '',
       description: '',
-      section_id: this.props.sections[0]
+      section_id: this.props.sections[0].id
     };
     this.submitInput = this.submitInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   submitInput(e) {
     e.preventDefault();
     const newState = merge({}, this.state);
     newState.order = this.props.last_task.order+1;
+    newState.user_created_id = this.props.currentUserId;
     this.props.createTask(newState).then(
       data => {
         this.setState({name: '', description: ''});
@@ -30,7 +32,7 @@ class AddTask extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({section_id:e.target.value});
+    this.setState({section_id: e.target.value});
   }
 
   render() {

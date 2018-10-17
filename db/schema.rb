@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
     t.text "description"
     t.integer "user_assigned_id"
     t.integer "user_completed_id"
+    t.integer "user_assigner_id"
+    t.integer "user_created_id"
     t.date "due_date"
     t.boolean "completed", default: false
     t.bigint "section_id"
@@ -74,7 +76,9 @@ ActiveRecord::Schema.define(version: 2018_09_24_050432) do
     t.datetime "updated_at", null: false
     t.index ["section_id"], name: "index_tasks_on_section_id"
     t.index ["user_assigned_id"], name: "index_tasks_on_user_assigned_id"
+    t.index ["user_assigner_id"], name: "index_tasks_on_user_assigner_id"
     t.index ["user_completed_id"], name: "index_tasks_on_user_completed_id"
+    t.index ["user_created_id"], name: "index_tasks_on_user_created_id"
   end
 
   create_table "team_memberships", force: :cascade do |t|

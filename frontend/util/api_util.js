@@ -78,3 +78,9 @@ export const createProject = (project) => $.ajax({
   method: 'POST',
   data: {project}
 });
+
+export const createComment = (comment) => $.ajax({
+  url: `api/comments`,
+  method: 'POST',
+  data: {comment}
+});

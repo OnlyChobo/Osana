@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :tasks, only: [:index, :show, :create]
     resources :sections, only: [:create, :show]
+    resources :comments, only: [:create, :show]
     resources :favourites, only: [:create, :destroy]
     resources :projects, only: [:index, :show, :create, :destroy]
     resources :team_memberships, only: [:create, :destroy, :show]

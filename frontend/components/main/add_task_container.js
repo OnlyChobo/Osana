@@ -6,7 +6,8 @@ import { sortBy } from 'lodash';
 
 const mapStateToProps = state => ({
   sections: Object.values(state.entities.sections),
-  last_task: sortBy(Object.values(state.entities.tasks), ['order']).slice(-1)[0]
+  last_task: sortBy(Object.values(state.entities.tasks), ['order']).slice(-1)[0],
+  currentUserId: state.session.id
 });
 
 const mapDispatchToProps = dispatch => ({

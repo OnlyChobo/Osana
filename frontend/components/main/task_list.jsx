@@ -33,6 +33,10 @@ class TaskList extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.closeCommentPane();
+  }
+
   sortSections () {
     this.setState({sortedSections: sortBy(this.props.sections, ['order'])});
   }

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { withRouter } from 'react-router-dom';
 import SideNavTopLinks from './side_nav_top_links';
 import SideNavFavouritesBox from './side_nav_favourites_box';
 import SideNavReportsBox from './side_nav_reports_box';
@@ -12,8 +13,11 @@ class SideNavBox extends React.Component {
     this.toggleNav = this.toggleNav.bind(this);
   }
   componentDidMount() {
-    this.props.getUserInfo(this.props.currentUser);
+    this.props.getUserInfo(this.props.currentUser).then (
+      this.props.fetchTeam(this.props.match.params.teamId)
+    );
   }
+
   toggleNav (e) {
     return this.props.toggleLeftNav();
   }
@@ -52,4 +56,4 @@ class SideNavBox extends React.Component {
   }
 }
 
-export default SideNavBox;
+export default withRouter(SideNavBox);

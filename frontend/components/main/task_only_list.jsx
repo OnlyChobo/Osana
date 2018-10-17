@@ -21,6 +21,10 @@ class TaskList extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.closeCommentPane();
+  }
+
   render() {
 
     return (

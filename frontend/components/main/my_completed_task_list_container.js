@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import TaskOnlyList from './task_only_list';
 import { fetchTasks } from '../../actions/task_actions';
 import { openModal } from '../../actions/ui_actions';
-import { openCommentPane, setHeader } from '../../actions/ui_actions';
+import { openCommentPane, closeCommentPane, setHeader } from '../../actions/ui_actions';
 
 
 const mapStateToProps = state => ({
@@ -14,7 +14,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTasks: data => dispatch(fetchTasks(data)),
-  setHeader: header => dispatch(setHeader(header))
+  setHeader: header => dispatch(setHeader(header)),
+  closeCommentPane: () => dispatch(closeCommentPane())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskOnlyList);

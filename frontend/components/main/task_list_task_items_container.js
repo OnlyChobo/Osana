@@ -4,7 +4,8 @@ import { openCommentPane, closeCommentPane } from '../../actions/ui_actions';
 
 
 const mapStateToProps = state => ({
-  commentPane: state.ui.commentPane
+  commentPane: state.ui.commentPane,
+  users: Object.values(state.entities.users)
 });
 
 const mapDispatchToProps = dispatch => ({

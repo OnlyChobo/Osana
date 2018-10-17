@@ -12,6 +12,7 @@ class TaskListTaskItems extends React.Component {
 
   render () {
     let {task} = this.props;
+    const user = this.props.users.filter( user => user.id === task.userAssignedId);
     return (
       <div
         className='sectionTaskRow'
@@ -25,7 +26,10 @@ class TaskListTaskItems extends React.Component {
           </div>
         </div>
         <div className='sectionTaskRow-right'>
-          {task.userAssignedId ? <div className='smallAvatar'>T</div> : <div></div>}
+          {user.length > 0 && task.userAssignedId ?
+            <div className='smallAvatar'>{user[0].fname[0]+user[0].lname[0]}</div> :
+            <div></div>
+          }
         </div>
       </div>
     );
