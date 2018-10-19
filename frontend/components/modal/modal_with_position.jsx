@@ -10,6 +10,7 @@ import UserDropdownContainer from '../greeting/user_dropdown_container';
 import AddDropdownContainer from '../greeting/add_dropdown_container';
 import SearchBarDropdownContainer from '../greeting/search_bar_dropdown_container';
 import SelectProjectContainer from '../main/select_project_container';
+import SelectAssignedUserContainer from '../main/select_assigned_user_container';
 import SelectFavouriteContainer from '../main/select_favourite_container';
 
 function ModalWithPosition({modal, closeModal, position}) {
@@ -32,6 +33,9 @@ function ModalWithPosition({modal, closeModal, position}) {
       break;
     case 'projectOptions':
       component = <SelectProjectContainer left={position.left} top={position.top} height={position.height} />;
+      break;
+    case 'assignedUserOptions':
+      component = <SelectAssignedUserContainer left={position.left} top={position.top} height={position.height} />;
       break;
     default:
       return null;

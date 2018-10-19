@@ -24,6 +24,11 @@ export const fetchProject = (id) => dispatch => (
     .then(payload => dispatch(receiveProject(payload)))
 );
 
+export const fetchProjects = (data) => dispatch => (
+  APIUtil.fetchProjects(data)
+    .then(payload => dispatch(receiveProjects(payload)))
+);
+
 export const createProject = project => dispatch => (
   APIUtil.createProject(project)
     .then(project => dispatch(receiveProject(project)))

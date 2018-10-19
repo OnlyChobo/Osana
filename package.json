@@ -6,16 +6,20 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
     "lodash": "^4.17.4",
+    "moment": "^2.22.2",
     "npm": "^6.4.1",
     "react": "^16.5.2",
+    "react-datepicker": "^1.7.0",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "style-loader": "^0.23.1",
     "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1"
@@ -28,8 +32,8 @@
     "test": "test"
   },
   "engines": {
-    "node": "8.11.1",
-    "npm": "5.6.0"
+    "node": "8.9.4",
+    "npm": "6.4.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

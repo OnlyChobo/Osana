@@ -9,10 +9,20 @@ class SearchBarDropdown extends React.Component {
     };
   }
 
-  handleSearch(e) {
+  componentDidMount() {
+    this.handleSearch(this.props.searchText);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.searchText != nextProps.searchText) {
+      this.handleSearch(nextProps.searchText);
+    }
+  }
+
+  handleSearch(text) {
     const newSelected = [];
     this.props.projects.forEach( project => {
-      if (e.target.value.length > 0 && project.name.startsWith(e.target.value)) {
+      if (text && project.name.startsWith(text)) {
         newSelected.push(project);
       }
     });

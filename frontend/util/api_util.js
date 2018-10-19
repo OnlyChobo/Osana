@@ -52,9 +52,20 @@ export const fetchProject = (id) => $.ajax({
   url: `api/projects/${id}`
 });
 
+export const fetchProjects = (project) => $.ajax({
+  url: `api/projects`,
+  data: {project}
+});
+
 export const createTask = (task) => $.ajax({
   url: `api/tasks`,
   method: 'POST',
+  data: {task}
+});
+
+export const updateTask = (task) => $.ajax({
+  url: `api/tasks/${task.id}`,
+  method: 'PATCH',
   data: {task}
 });
 

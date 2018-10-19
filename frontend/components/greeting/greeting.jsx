@@ -9,7 +9,7 @@ class Greeting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedProjects: [],
+      searchText: "",
       initial: this.props.currentUser.fname[0]+this.props.currentUser.lname[0]
     };
   }
@@ -33,6 +33,7 @@ class Greeting extends React.Component {
               className='topNavBar-search'
               id='searchBar'
               placeholder='Go to any project or task...'
+              onChange={e => this.props.searchBarText(e.target.value)}
               onClick={()=> {
                 setTimeout(()=>{
                   this.props.setModalPositions(document.getElementById('searchBar'));

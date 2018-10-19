@@ -10,7 +10,7 @@ import { sortBy } from 'lodash';
 const mapStateToProps = state => ({
   sections: Object.values(state.entities.sections),
   last_section: sortBy(Object.values(state.entities.sections), ['order']).slice(-1)[0],
-  tasks: Object.values(state.entities.tasks),
+  tasks: Object.values(state.entities.tasks).filter (task => !task.completed),
   commentPane: state.ui.commentPane,
   projects: state.entities.projects
 });

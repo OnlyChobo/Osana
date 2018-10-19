@@ -7,7 +7,8 @@ import MyCompletedTaskListContainer from './main/my_completed_task_list_containe
 import MyCreatedTaskListContainer from './main/my_created_task_list_container';
 import ProjectListContainer from './main/project_list_container';
 import GreetingContainer from './greeting/greeting_container';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 class Dashboard extends React.Component {
   render () {
@@ -16,12 +17,15 @@ class Dashboard extends React.Component {
         <SideNavBoxContainer/>
         <div className='body-content'>
           <GreetingContainer/>
-          <Route exact path='/teams/:teamId/home' component={ProjectListContainer}/>
-          <Route exact path='/teams/:teamId/projects/:projectId' component={TaskListContainer}/>
-          <Route exact path='/teams/:teamId/myTasks' component={MyTaskListContainer}/>
-          <Route exact path='/teams/:teamId/tasksCreated' component={MyCreatedTaskListContainer}/>
-          <Route exact path='/teams/:teamId/tasksAssigned' component={MyAssignedTaskListContainer}/>
-          <Route exact path='/teams/:teamId/tasksCompleted' component={MyCompletedTaskListContainer}/>
+          <Switch>
+            <ProtectedRoute exact path='/teams/:teamId/home' component={ProjectListContainer}/>
+            <ProtectedRoute exact path='/teams/:teamId/projects/:projectId' component={TaskListContainer}/>
+            <ProtectedRoute exact path='/teams/:teamId/myTasks' component={MyTaskListContainer}/>
+            <ProtectedRoute exact path='/teams/:teamId/tasksCreated' component={MyCreatedTaskListContainer}/>
+            <ProtectedRoute exact path='/teams/:teamId/tasksAssigned' component={MyAssignedTaskListContainer}/>
+            <ProtectedRoute exact path='/teams/:teamId/tasksCompleted' component={MyCompletedTaskListContainer}/>
+            <Redirect to='/teams/:teamId/home' />
+          </Switch>
         </div>
       </div>
     );

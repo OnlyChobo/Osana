@@ -27,3 +27,8 @@ export const fetchTasks = (data) => dispatch => (
   APIUtil.fetchTasks(data)
     .then(payload => dispatch(receiveTasks(payload)))
 );
+
+export const updateTask = (task) => dispatch => (
+  APIUtil.updateTask(task)
+    .then(payload => dispatch(receiveTask(payload)))
+);

@@ -19,9 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
-  window.store = store;
-  window.fetchTasks = fetchTasks;
-  window.createTask = createTask;
 	ReactDOM.render(<Root store={store} />, root);
 });

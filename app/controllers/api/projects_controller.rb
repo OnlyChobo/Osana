@@ -14,7 +14,11 @@ class Api::ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    if params[:project][:starts_with]
+      @projects = Project.where("name LIKE :prefix", "#{prefix}%")
+    else
+      @projects = Project.all
+    end
   end
 
   def destroy

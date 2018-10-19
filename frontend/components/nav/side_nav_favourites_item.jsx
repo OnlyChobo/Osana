@@ -20,7 +20,10 @@ class SideNavFavouritesItem extends React.Component {
         className='SideNavItemRow NavPage'
         onMouseEnter={ () => this.toggleShow() }
         onMouseLeave={ () => this.toggleHide() }
-        onClick = { () => this.props.history.push(`/teams/${this.props.favourite.teamId}/projects/${this.props.favourite.id}`)}>
+        onClick = { () => {
+          this.props.history.push(`/teams/${this.props.favourite.teamId}/projects/${this.props.favourite.id}`);
+          this.props.closeCommentPane();
+        }}>
         <svg className='SideNavListIcon' viewBox='0 0 24 24'>
           <circle cx="50%" cy="50%" r="8" fill="#d5dce0" />
         </svg>

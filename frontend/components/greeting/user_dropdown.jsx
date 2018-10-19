@@ -5,6 +5,7 @@ class UserDropdown extends React.Component {
   handleLogout() {
     this.props.logout().then(() => {
       this.props.history.push(`/`);
+      this.props.closeModal();
     });
   }
 
