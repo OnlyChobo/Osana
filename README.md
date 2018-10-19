@@ -1,24 +1,20 @@
-# README
+Live Link
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Features
+* Create an account
+* Log in / Log out
+* Update profile information
+* Create projects, sections, favourites, comments
+* Create, edit tasks
+* Search for projects
 
-Things you may want to cover:
+# Languages and Libraries
+* JavaScript
+* React.js
+* Redux
+* Ruby
+* Ruby on Rails
+* PostgreSQL
+* HTML5 + CSS3
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
