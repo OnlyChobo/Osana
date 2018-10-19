@@ -18,7 +18,10 @@ class UserDropdown extends React.Component {
               <li
                 key={team.id}
                 className="user-dd-team-list-item"
-                onClick = {()=>this.props.history.push(`/teams/${team.id}/home`)}>
+                onClick = {()=>{
+                  this.props.history.push(`/teams/${team.id}/home`);
+                  this.props.closeModal();
+                }}>
                 {team.name}
               </li>)}
 

@@ -15,6 +15,10 @@ class Profile extends React.Component {
     };
   }
 
+  componentWillMount() {
+    
+  }
+
   handleToggle() {
     return e => this.setState({vacation_ind: !this.state.vacation_ind});
   }

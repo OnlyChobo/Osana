@@ -103,7 +103,7 @@ class Login extends React.Component {
         </div>
 
           <input className = 'button login-button' type='submit' value={this.props.formType}/>
-          <button className ='button login-button' onClick={(() => this.setState({email: 'a@b.c', password:'catcat'}))}>User Demo</button>
+          <button className ='button login-button' onClick={(() => this.setState({email: 'demo@demo.com', password:'catcat'}))}>User Demo</button>
         </form>
         <div className = 'login-forgot-container'>
           <a href='#' className = 'login-forgot'>Forgot password?</a>

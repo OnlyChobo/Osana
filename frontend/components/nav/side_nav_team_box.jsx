@@ -10,7 +10,7 @@ class SideNavTeamBox extends React.Component {
           <span className='SideNavTeamTitle-name'>Team</span>
         </div>
         <div className='SideNavTeamMemberList'>
-          {this.props.teamMembers.map (teamMember => <SideNavTeamIconItem key={teamMember.id} teamMember={teamMember}/>)}
+          {this.props.teamMembers.slice(0,4).map (teamMember => <SideNavTeamIconItem key={teamMember.id} teamMember={teamMember}/>)}
           <div className='SideNavTeamInvite'>Invite People</div>
         </div>
         <div>
