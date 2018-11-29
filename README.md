@@ -21,13 +21,13 @@ Osana is a full stack, single-page application inspired by [Asana](http://www.as
 * Search for projects
 
 ### Homepage
-![] (readme/home_page.png)
+![](readme/home_page.png)
 
 ### Projects View
-![] (readme/projects.png)
+![](readme/projects.png)
 
 ### Tasks and Comments
-![] (readme/tasks_and_comments.png)
+![](readme/tasks_and_comments.png)
 
 ### User Profile
-![] (readme/user_profile.png)
+![](readme/user_profile.png)
