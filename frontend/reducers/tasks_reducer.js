@@ -1,4 +1,4 @@
-import {RECEIVE_TASKS, RECEIVE_TASK, REMOVE_TASK} from '../actions/task_actions';
+import { RECEIVE_TASKS, RECEIVE_TASK } from '../actions/task_actions';
 import { RECEIVE_PROJECT } from '../actions/project_actions';
 import merge from 'lodash/merge';
 

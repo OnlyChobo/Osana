@@ -12,6 +12,14 @@ class Api::SectionsController < ApplicationController
     @section = Section.find(params[:id])
   end
 
+  def index
+    if section_params.empty?
+      @sections = Section.all
+    else
+      @sections = Section.where(section_params)
+    end
+  end
+
   private
   def section_params
     params.require(:section).permit(:name, :order, :project_id)

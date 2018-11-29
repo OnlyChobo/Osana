@@ -1,15 +1,13 @@
 json.set! :task do
   json.set! @task.id do
-    json.extract! @task,
-      :id, :name, :order, :description, :user_assigned_id, :user_completed_id,
-      :due_date, :completed, :section_id, :user_assigner_id, :user_created_id
+    json.partial! 'api/tasks/task.json.jbuilder', task: @task
   end
 end
 
-json.set! :comments do
-  @task.comments.each do |comment|
-    json.set! comment.id do
-      json.extract! comment, :id, :user_id, :task_id, :body, :created_at
-    end
-  end
-end
+# json.set! :comments do
+#   @task.comments.each do |comment|
+#     json.set! comment.id do
+#       json.extract! comment, :id, :user_id, :task_id, :body, :created_at
+#     end
+#   end
+# end

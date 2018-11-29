@@ -21,7 +21,9 @@ class Api::TasksController < ApplicationController
   end
 
   def index
-    if task_params.empty?
+    if params[:task][:starts_with]
+      @tasks = Task.where("name LIKE :prefix", "#{prefix}%")
+    elsif task_params.empty?
       @tasks = Task.all
     else
       @tasks = Task.where(task_params)

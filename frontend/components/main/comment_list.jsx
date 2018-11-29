@@ -5,23 +5,59 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import merge from 'lodash/merge';
 import 'react-datepicker/dist/react-datepicker.css';
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 class CommentList extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      submitComment: ''
+      submitComment: '',
+      isFetching: false
     };
+    this.commentsCount = 0;
     this.handleChangeDate = this.handleChangeDate.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
-    this.props.fetchTask(this.props.taskId);
+    // console.log(this.props.taskId);
+    this.props.fetchComments({
+      task_id: this.props.taskId,
+      comments_count: this.commentsCount
+    }).then(() => {
+      document.getElementById("latest-comment").scrollIntoView();
+    })
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.props.taskId);
     if (this.props.taskId !== nextProps.taskId) {
-      this.props.fetchTask(nextProps.taskId);
+      this.commentsCount = 0;
+      this.props.fetchComments({
+        task_id: nextProps.taskId,
+        comments_count: this.commentsCount
+      }).then(() => {
+        document.getElementById("latest-comment").scrollIntoView();
+      });
+    }
+  }
+
+  handleScroll() {
+    console.log(this.commentsCount);
+    if (this.box.scrollTop === 0) {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.setState({isFetching: true});
+      
+      this.timeout = setTimeout(() => {
+        this.commentsCount += 15;
+        this.props.fetchAdditionalComments({
+          task_id: this.props.taskId,
+          comments_count: this.commentsCount
+        }).then(() => {
+          this.setState({ isFetching: false });
+        });
+        this.timeout = null;
+      }, 1000);
     }
   }
 
@@ -51,7 +87,12 @@ class CommentList extends React.Component {
           task_id: this.props.taskId,
           user_id: this.props.currentUser.id,
           body: this.state.submitComment.trim()
-        }).then(() => this.setState({submitComment: ''.trim()}));
+        }).then(() => {
+          this.setState({
+            submitComment: ''.trim()
+          })
+          document.getElementById("latest-comment").scrollIntoView();
+        });
       }
     };
   }
@@ -84,13 +125,10 @@ class CommentList extends React.Component {
     } else {
       outputDate = '';
     }
-
     let initial = this.props.currentUser.fname[0] + this.props.currentUser.lname[0];
 
     return (
       <div className='commentBox-container'>
-
-        <div className='commentBox-scrollable'>
           <div className='commentBox-close'>
             <i onClick={this.props.closeCommentPane} className="fas fa-times fa-lg"></i>
           </div>
@@ -140,15 +178,23 @@ class CommentList extends React.Component {
             <i className="fas fa-align-left fa-lg"></i>
             {this.props.task ? this.props.task.description : null}
           </div>
-          <div className='commentBox-commentList'>
+          <div 
+            className='commentBox-commentList'
+            ref={ node => {this.box = node;} }
+            onScroll={this.handleScroll}>
+            { this.state.isFetching ?
+              <img className="comment-loading"
+              src="https://raw.githubusercontent.com/liamzhang40/Basana/master/app/assets/images/comment_loading.gif"
+              alt="loading..."/> : null
+            }
             {this.props.comments.map(comment =>
               <CommentListItemContainer
                 key={comment.id}
                 comment={comment}
                 user={this.props.users[comment.userId]} />
             )}
+            <div id='latest-comment'></div>
           </div>
-        </div>
         <div className='addCommentBoxContainer'>
           <div className='smallAvatar'>{initial}</div>
           <textarea

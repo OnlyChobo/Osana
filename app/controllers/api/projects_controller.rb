@@ -16,8 +16,10 @@ class Api::ProjectsController < ApplicationController
   def index
     if params[:project][:starts_with]
       @projects = Project.where("name LIKE :prefix", "#{prefix}%")
-    else
+    elsif project_params.empty?
       @projects = Project.all
+    else
+      @projects = Project.where(project_params)
     end
   end
 

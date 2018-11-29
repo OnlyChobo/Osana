@@ -1531,6 +1531,7 @@ td {
   height: 100%;
   flex: 1 1 auto;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .taskContainer > * {
@@ -1541,13 +1542,13 @@ td {
   display: flex;
   flex-direction: column;
   flex: 0 1 1000px;
-  min-width: 405px;
+  min-width: 205px;
   padding: 10px 30px;
   margin-top: 10px;
   background-color: #fff;
   border-radius: 4px 4px 0 0;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .commentBox {
@@ -1598,6 +1599,7 @@ td {
   border-bottom: 1px solid #e0e6e8;
   display: flex;
   padding-bottom: 15px;
+  height: 50px;
 }
 
 .commentBox-taskName {
@@ -1606,7 +1608,7 @@ td {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
-  min-height: 0;
+  height: 50px;
   padding-bottom: 4px;
   padding-top: 4px;
   margin-bottom: 10px;
@@ -1665,6 +1667,7 @@ td {
   margin-top: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e0e6e8;
+  min-height: 30px;
 }
 
 .fa-align-left {
@@ -1672,14 +1675,9 @@ td {
   margin: 10px;
 }
 
-.commentBox-scrollable {
-  overflow-y: scroll;
+.commentBox-commentList {
+  overflow-y:scroll;
   height: 100%;
-}
-
-.commentBox-scrollable::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
 }
 
 .commentContainer {

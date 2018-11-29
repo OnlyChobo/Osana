@@ -75,6 +75,15 @@ export const createSection = (section) => $.ajax({
   data: {section}
 });
 
+export const fetchSection = (id) => $.ajax({
+  url: `api/sections/${id}`
+});
+
+export const fetchSections = (section) => $.ajax({
+  url: `api/sections`,
+  data: {section}
+});
+
 export const fetchTask = (id) => $.ajax({
   url: `api/tasks/${id}`
 });
@@ -93,5 +102,14 @@ export const createProject = (project) => $.ajax({
 export const createComment = (comment) => $.ajax({
   url: `api/comments`,
   method: 'POST',
+  data: {comment}
+});
+
+export const fetchComment = (id) => $.ajax({
+  url: `api/comments/${id}`
+});
+
+export const fetchComments = (comment) => $.ajax({
+  url: `api/comments`,
   data: {comment}
 });

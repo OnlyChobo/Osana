@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import TaskList from './task_list';
 import { fetchProject } from '../../actions/project_actions';
+import { fetchTasks } from '../../actions/task_actions';
+import { fetchSections } from '../../actions/section_actions';
 import { openModal } from '../../actions/ui_actions';
-import { openCommentPane, closeCommentPane, setHeader } from '../../actions/ui_actions';
+import { closeCommentPane, setHeader } from '../../actions/ui_actions';
 import { createSection } from '../../actions/section_actions';
 import { sortBy } from 'lodash';
 
@@ -17,6 +19,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchProject: id => dispatch(fetchProject(id)),
+  fetchSections: section => dispatch(fetchSections(section)),
+  fetchTasks: task => dispatch(fetchTasks(task)),
   createSection: section => dispatch(createSection(section)),
   setHeader: header => dispatch(setHeader(header)),
   openModal: modal => dispatch(openModal(modal)),
