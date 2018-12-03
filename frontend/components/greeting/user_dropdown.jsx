@@ -20,6 +20,7 @@ class UserDropdown extends React.Component {
                 className="user-dd-team-list-item"
                 onClick = {()=>{
                   this.props.history.push(`/teams/${team.id}/home`);
+                  this.props.fetchTeam(team.id);
                   this.props.closeModal();
                 }}>
                 {team.name}

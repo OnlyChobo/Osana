@@ -13,9 +13,10 @@ class SideNavBox extends React.Component {
     this.toggleNav = this.toggleNav.bind(this);
   }
   componentDidMount() {
-    this.props.getUserInfo(this.props.currentUser).then (
-      this.props.fetchTeam(this.props.match.params.teamId)
-    );
+    this.props.getUserInfo(this.props.currentUser).then ( () => {
+      this.props.fetchProjects({team_id: this.props.match.params.teamId});
+      this.props.fetchTeam(this.props.match.params.teamId);
+    });
   }
 
   toggleNav (e) {

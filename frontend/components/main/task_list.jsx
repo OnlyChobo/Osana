@@ -13,10 +13,14 @@ class TaskList extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.fetchProject(this.props.match.params.projectId).then(
+    this.props.fetchSections({project_id: this.props.match.params.projectId}).then(
       () => {
         this.sortSections();
-        this.props.setHeader(this.props.projects[this.props.match.params.projectId].name);
+        if (this.props.sections.length > 0) {
+          this.props.fetchTasks({section_id: this.props.sections[0].id});
+        }
+        this.props.fetchProject(this.props.match.params.projectId).then( () => 
+          this.props.setHeader(this.props.projects[this.props.match.params.projectId].name));
       }
     );
 
@@ -24,9 +28,12 @@ class TaskList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.projectId !== nextProps.match.params.projectId) {
-      this.props.fetchProject(nextProps.match.params.projectId).then(
+      this.props.fetchSections({project_id: nextProps.match.params.projectId}).then(
         () => {
           this.sortSections();
+          if (this.props.sections.length > 0) {
+            this.props.fetchTasks({section_id: this.props.sections[0].id});
+          }
           this.props.setHeader(this.props.projects[this.props.match.params.projectId].name);
         }
       );
@@ -53,9 +60,10 @@ class TaskList extends React.Component {
   handleSubmit () {
     return e => {
       if (e.key === 'Enter') {
+        const order = this.props.last_section ? this.props.last_section.order+1 : 0;
         this.props.createSection({
           name: this.state.sectionName,
-          order: this.props.last_section.order+1,
+          order,
           project_id: this.props.match.params.projectId
         });
         this.setState({show: false});

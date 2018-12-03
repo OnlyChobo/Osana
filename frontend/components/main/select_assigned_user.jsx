@@ -5,6 +5,8 @@ class SelectAssignedUser extends React.Component {
   handleUser(user) {
     const updatedTask = merge({}, this.props.task);
     updatedTask.user_assigned_id = user;
+    console.log(updatedTask);
+    updatedTask.user_assigner_id = this.props.currentUserId;
     this.props.updateTask(updatedTask);
     this.props.closeModal();
   }

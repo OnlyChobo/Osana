@@ -7,6 +7,8 @@ import { fetchTasks } from '../../actions/task_actions';
 
 const mapStateToProps = (state) => ({
   projects: Object.values(state.entities.projects),
+  tasks: Object.values(state.entities.tasks),
+  teamId: state.session.teamId,
   searchText: state.ui.searchBar
 });
 

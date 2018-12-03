@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { toggleLeftNav } from '../../actions/ui_actions';
 import { getUserInfo } from '../../actions/session_actions';
 import { fetchTeam } from '../../actions/team_actions';
+import { fetchProjects } from '../../actions/project_actions';
 import SideNavBox from './side_nav_box';
 
 
@@ -12,6 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTeam: payload => dispatch(fetchTeam(payload)),
+  fetchProjects: payload => dispatch(fetchProjects(payload)),
   toggleLeftNav: () => dispatch(toggleLeftNav()),
   getUserInfo: (user) => dispatch(getUserInfo(user))
 });

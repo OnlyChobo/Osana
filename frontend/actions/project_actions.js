@@ -4,9 +4,9 @@ export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
 export const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 export const REMOVE_PROJECT = 'REMOVE_PROJECT';
 
-export const receiveProjects = projects => ({
+export const receiveProjects = payload => ({
   type: RECEIVE_PROJECTS,
-  projects
+  payload
 });
 
 export const receiveProject = payload => ({

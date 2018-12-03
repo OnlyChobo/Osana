@@ -1754,3 +1754,8 @@ td {
   margin-right: 10px;
   flex: 1 1 auto;
 }
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+}

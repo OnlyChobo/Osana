@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import merge from 'lodash/merge';
 import 'react-datepicker/dist/react-datepicker.css';
+import ReactLoading from 'react-loading';
 
 class CommentList extends React.Component {
   constructor (props) {
@@ -18,30 +19,31 @@ class CommentList extends React.Component {
     this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
-    // console.log(this.props.taskId);
     this.props.fetchComments({
       task_id: this.props.taskId,
       comments_count: this.commentsCount
     }).then(() => {
-      document.getElementById("latest-comment").scrollIntoView();
+      if (document.getElementById("latest-comment")) {
+        document.getElementById("latest-comment").scrollIntoView();
+      }
     })
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props.taskId);
     if (this.props.taskId !== nextProps.taskId) {
       this.commentsCount = 0;
       this.props.fetchComments({
         task_id: nextProps.taskId,
         comments_count: this.commentsCount
       }).then(() => {
-        document.getElementById("latest-comment").scrollIntoView();
+        if (document.getElementById("latest-comment")) {
+          document.getElementById("latest-comment").scrollIntoView();
+        }
       });
     }
   }
 
   handleScroll() {
-    console.log(this.commentsCount);
     if (this.box.scrollTop === 0) {
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -126,7 +128,6 @@ class CommentList extends React.Component {
       outputDate = '';
     }
     let initial = this.props.currentUser.fname[0] + this.props.currentUser.lname[0];
-
     return (
       <div className='commentBox-container'>
           <div className='commentBox-close'>
@@ -182,10 +183,9 @@ class CommentList extends React.Component {
             className='commentBox-commentList'
             ref={ node => {this.box = node;} }
             onScroll={this.handleScroll}>
+            
             { this.state.isFetching ?
-              <img className="comment-loading"
-              src="https://raw.githubusercontent.com/liamzhang40/Basana/master/app/assets/images/comment_loading.gif"
-              alt="loading..."/> : null
+              <div className='loading-container'><ReactLoading type='spokes' color='#000' height={35} width={35} /></div> : null
             }
             {this.props.comments.map(comment =>
               <CommentListItemContainer

@@ -25,6 +25,8 @@ class Api::TasksController < ApplicationController
       @tasks = Task.where("name LIKE :prefix", "#{prefix}%")
     elsif task_params.empty?
       @tasks = Task.all
+    elsif task_params[:section_id]
+      @tasks = Section.find(task_params[:section_id]).project.tasks
     else
       @tasks = Task.where(task_params)
     end

@@ -1,6 +1,6 @@
 class Api::TeamsController < ApplicationController
   def show
-    @team = Team.find(params[:id])
+    @team = Team.includes(:team_memberships).find(params[:id])
   end
 
 end

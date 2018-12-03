@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
   teams: Object.values(state.entities.teams),
   projects: Object.values(state.entities.projects),
   leftNavStatus: state.ui.navBar,
-  header: state.ui.header
+  header: state.ui.header,
+  modal: state.ui.modal
 });
 
 const mapDispatchToProps = (dispatch) => ({

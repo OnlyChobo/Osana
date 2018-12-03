@@ -5,8 +5,6 @@ import merge from 'lodash/merge';
 const tasksReducer = (state={}, action) => {
   Object.freeze(state);
   switch(action.type) {
-    case RECEIVE_PROJECT:
-      return merge({}, action.payload.tasks);
     case RECEIVE_TASKS:
       return merge({}, action.payload);
     case RECEIVE_TASK:

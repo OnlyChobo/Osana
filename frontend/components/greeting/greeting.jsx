@@ -14,6 +14,14 @@ class Greeting extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.modal != nextProps.modal && this.props.modal == 'searchBar') {
+      document.getElementById('searchBar').value = "";
+      this.setState({searchText: ""});
+      this.props.searchBarText("");
+    }
+  }
+
   render () {
     const currentUser = this.props.currentUser;
     let {dropdownActive, searchBar} = this.state;
@@ -32,7 +40,7 @@ class Greeting extends React.Component {
             <input type='text'
               className='topNavBar-search'
               id='searchBar'
-              placeholder='Go to any project or task...'
+              placeholder='Go to any project...'
               onChange={e => this.props.searchBarText(e.target.value)}
               onClick={()=> {
                 setTimeout(()=>{

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ProjectList from './project_list';
 import { fetchTeam } from '../../actions/team_actions';
+import { fetchProjects } from '../../actions/project_actions';
 import { allFavourites } from '../../reducers/selectors';
 import { openModal, setHeader } from '../../actions/ui_actions';
 
@@ -13,6 +14,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTeam: payload => dispatch(fetchTeam(payload)),
+  fetchProjects: payload => dispatch(fetchProjects(payload)),
   openModal: modal => dispatch(openModal(modal)),
   setHeader: header => dispatch(setHeader(header))
 });
